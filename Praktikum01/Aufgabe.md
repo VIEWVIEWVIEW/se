@@ -13,22 +13,29 @@ Im Rahmen des Studiums bearbeiten Studenten mehrere Projekte im Bereich der Info
 
 Die Software soll folgende Funktionen umsetzen:
 
-
 ### Projektverwaltung
-- Erstellung eines Projektes
-- Zuweisung des Projektes zu einem Modul
-- bis zu drei Studenten zu einem Projekt zuweisen (inklusive Matrikelnr + email)
-- Projektbeschreibung (kurz)
-- Projektbeschreibung lang
-- Deadline
-- Ist das Projekt vom Mitarbeiter zugelassen worden (y/n)
-- Terminierungsfunktion für 2 Vorträge zum Thema. => Mitarbeiter kann verschiedene Zeiträume festlegen, an dem er könnte. Die Studenten können dann zu diesen Terminen y/n sagen.
-- Ansprechpartner von fremden Unternehmen zuweisen können (mit Eintragung dessen Email)
+1. Student loggt sich mit FH-Login (LDAP?) ein.
+2. Mitarbeiter loggt sich ein
+3. Erstellung eines Projekteantrags durch einen Studenten für Modul X.
+4. Der Projektantrag wird als Markdown geschrieben und eingereicht.
+5. Der Projektantrag beinhaltet folgende Attribute
+  1. Titel
+  2. Projektbeschreibung kurz (3-4 Sätze)
+  3. Ausführliche Projektbeschreibung
+  4. Vorschlag für Deadline
+  5. Matrikelnummern der Projektmitglieder (bis zu 3 Stück)
+  6. Emailadressen der Projektmitglieder
+6. Ein Mitarbeiter der Fachhochschule kann den Antrag annehmen oder ablehnen.
+7. Ein Mitarbeiter kann den Antrag auch kommentieren.
+8. Ein Mitarbeiter kann die Projektattribute ändern.
+9. Bei Events 5 bis 7 wird eine E-Mail an den Studenten versendet.
+10. Terminierungsfunktion für die Projektvorstellung.
+11. Ansprechpartner von fremden Unternehmen zuweisen können (mit Eintragung dessen Email)
 
 
 ### UI
-- Die Eintragungen von Projekten sollen in einer ListView dargestellt werden. Nicht einzelne Zeile, sondern mehrere, um alle wichtigen Informationen (Projektname, Kurzbeschreibung, Studenten, Ansprechpartner, Deadline, nächster Termin, Approved) anzuzeigen
-- Module via TreeView
+1. Die Eintragungen von Projekten sollen in einer ListView dargestellt werden. Nicht einzelne Zeile, sondern mehrere, um alle wichtigen Informationen (Projektname, Kurzbeschreibung, Studenten, Ansprechpartner, Deadline, nächster Termin, Approved) anzuzeigen
+2. Module via TreeView
     + WS22/23
       + Modul 1
       + Modul 2
@@ -38,9 +45,9 @@ Die Software soll folgende Funktionen umsetzen:
       + Modul 2
 
 ### Meta
-- Überall Erreichbar (als Website, damit der Anwender nach Praktikas/Vorlesungen "schnell nebenbei" Änderungen eintragen kann)
-- WebPush Notifications
-- Loginmaske für Mitarbeiter (Loginsystem der FH, falls das mitteilt ob die Person Lehrkraft ist, oder nicht. LDAP? OAuth? Ich weiß nicht, was die FH verwendet.)
+13. Überall Erreichbar (als Website, damit der Anwender nach Praktikas/Vorlesungen "schnell nebenbei" Änderungen eintragen kann)
+14. WebPush Notifications
+15. Loginmaske für Mitarbeiter (Loginsystem der FH, falls das mitteilt ob die Person Lehrkraft ist, oder nicht. LDAP? OAuth? Ich weiß nicht, was die FH verwendet.)
 - Calender Subscriptions (CalDav / .ics => https://en.wikipedia.org/wiki/ICalendar)
 - Canceln eines Termins vom Mitarbeiter via iCalendar
 - Schicken des Termins an die Studenten via iCalendar & Emailbestätigung
