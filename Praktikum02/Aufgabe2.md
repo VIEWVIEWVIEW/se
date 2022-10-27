@@ -1,3 +1,8 @@
+> Markieren Sie die
+> verschiedenen Anforderungen farbig im Text und erläutern die identifizierten Bereiche kurz
+> schriftlich.
+
+
 # Brainstorm
 
 Doku: https://www.visual-paradigm.com/support/documents/vpuserguide/26/2196/58045_usingbrainst.html
