@@ -1,0 +1,544 @@
+<html>
+<head>
+	<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="report.css" type="text/css"/>
+	<title>Requirement Diagram - Requirement Diagram1</title>
+	<script type="text/javascript" src="report.js"></script>
+	<script type="text/javascript" src="link_popup.js"></script>
+	<script type="text/javascript" src="tooltip.js"></script>
+</head>
+<body style="margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px;" onload="initPage();initDiagram();initGridDiagram();">
+	<div style="position:absolute; z-index:2; visibility:hidden;border-top: 2px #FF0000 solid;" id="spotlight_top">
+	</div>
+	<div style="position:absolute; z-index:2; visibility:hidden;border-top: 2px #FF0000 solid;" id="spotlight_bottom">
+	</div>
+	<div style="position:absolute; z-index:2; visibility:hidden;border-left: 2px #FF0000 solid;" id="spotlight_left">
+	</div>
+	<div style="position:absolute; z-index:2; visibility:hidden;border-left: 2px #FF0000 solid;" id="spotlight_right">
+	</div>
+	<canvas width="100" style="position:absolute; z-index:2; visibility:hidden" id="spotlight_c" height="100">
+	</canvas>
+	<div style="position:absolute; width:100px; height:100px; z-index:1; visibility:hidden" id="spotLightResourcesTop">
+		<table border="0" cellpadding="0" cellspacing="0">
+			<tr>
+				<td>
+<a href="#top"><img style="border:none" src="../images/icons/BackToTop.gif" alt="Back to top"/></a>				</td>
+				<td>
+<a href="javascript:clearSpotLightFromOpenSpecButton();"><img style="border:none" src="../images/icons/OpenSpecification.gif" alt="Open specification"/></a>				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute; width:100px; height:100px; z-index:1; visibility:hidden" id="spotLightResourcesRight">
+		<table border="0" cellpadding="0" cellspacing="0">
+			<tr>
+				<td>
+<a href="#top"><img style="border:none" src="../images/icons/BackToTop.gif" alt="Back to top"/></a>				</td>
+			</tr>
+			<tr>
+				<td>
+<a href="javascript:clearSpotLightFromOpenSpecButton();"><img style="border:none" src="../images/icons/OpenSpecification.gif" alt="Open specification"/></a>				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute;z-index:4;visibility:hidden" id="linkPopupMenuLayer">
+		<table border="0" width="100%" style="border-style:solid; border-width:1px; border-color:#000000; background:#FFFFFF; width:250px" id="linkPopupMenuTable">
+		</table>
+	</div>
+	<div style="position:absolute; z-index:1; visibility:hidden; " id="referenceIconLayer">
+		<table border="0" cellpadding="3" cellspacing="0" style="font-size:1;">
+			<tr>
+				<td>
+					<img src="../images/icons/Ref.gif" style="border:none" onclick="movePopupPositionToReferenceIconPosition();resetPopupForReference();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute; z-index:1; visibility:hidden; " id="subdiagramIconLayer">
+		<table border="0" cellpadding="3" cellspacing="0" style="font-size:1;">
+			<tr>
+				<td>
+					<img src="../images/icons/Subdiagram.gif" style="border:none" onclick="movePopupPositionToSubdiagramIconPosition();resetPopupForSubdiagram();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute; z-index:1; visibility:hidden; " id="transitorIconLayer">
+		<table border="0" cellpadding="3" cellspacing="0" style="font-size:1;">
+			<tr>
+				<td>
+					<img src="../images/icons/Transitor.gif" style="border:none" onclick="movePopupPositionToTransitorIconPosition();resetPopupForTransitor();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute; z-index:1; visibility:hidden; " id="documentationIconLayer">
+		<table border="0" cellpadding="3" cellspacing="0" style="font-size:1;">
+			<tr>
+				<td>
+					<img src="../images/icons/Documentation.png" style="border:none" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div class="HeaderText">
+		Blatt3	</div>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="HeaderLine1">
+			</td>
+		</tr>
+		<tr>
+			<td class="HeaderLine2">
+			</td>
+		</tr>
+		<tr>
+			<td class="HeaderLine3">
+			</td>
+		</tr>
+	</table>
+	<div style="position:absolute; z-index:21; visibility:hidden" id="referencedBys">
+		<table border="0" width="100%" style="border-style:solid; border-width:1px; border-color:#000000; background:#FFFFFF; width:250px" id="referencedBysTable">
+		</table>
+	</div>
+	<div style="position:absolute; z-index:21; visibility:hidden" id="vplink">
+		<table border="1" cellpadding="0" cellspacing="0" bordercolor="#A9BFD3">
+			<tr>
+				<td>
+					<table border="0" cellpadding="0" width="100%" cellspacing="0">
+						<tr style="background:#DDDDDD">
+							<td style="font-size: 12px;" align="left">
+								<select onchange="vpLinkToggleName()" id="vplink-linkType">
+	<option value="Project Link">Project Link</option>
+	<option value="Page URL">Page URL</option>
+</select>
+							</td>
+							<td style="font-size: 12px;" align="right">
+								<input onclick="javascript: vpLinkToggleName()" id="vplink-checkbox" type="checkbox" />
+								<label for="vplink-checkbox">with Name</label>							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<textarea id="vplink-text" style="width: 348px; height: 60px; border-color: #7EADD9; outline: none;"></textarea>				</td>
+			</tr>
+		</table>
+	</div>
+	<p class="PageTitle">
+		<span id="PageTitleText">
+			Requirement Diagram - Requirement Diagram1		</span>
+<a onclick="javascript: showVpLink('Blatt3.vpp://diagram/2TUBqCGFYGGAAQzb', 'Requirement Diagram1\nBlatt3.vpp://diagram/2TUBqCGFYGGAAQzb', 'Requirement Diagram1', this); return false;" style="padding-left: 16px; font-size: 12px" href="#"><img src="../images/icons/link.png" border="0"> link</a>	</p>
+	<div style="position: relative; padding-bottom: 20px;">
+		<table border="0" cellpadding="0" width="100%" cellspacing="0" style="position: absolute; top: 0; left: 0; z-index: 20;" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),hideLinkPopup(),hideReferencedBys();">
+			<tr>
+				<td>
+<span class="TableContent">Jump to:</span>					<select id="SelectShape" class="TableContent" onChange="scrollWin('diagram', this.value);hideLinkPopup();showSpotLight('diagram', this.value)">
+<option value="">Please select a model element</option>
+<option value="shape|501.0|253.0|240.0|61.0|TestCase_IA8SGCGGAqEGAQ3M.html|TestCase_IA8SGCGGAqEGAQ3M.html|IA8SGCGGAqEGAQ3L" id="optionIA8SGCGGAqEGAQ3L">Überprüfen ob die Daten bei Programmstart geladen werden und bei jeder Aktion gespeichert werden. : Test Case</option>
+<option value="shape|1348.0|280.0|240.0|103.0|TestCase_T9GCGCGGAqEGAQ25.html|TestCase_T9GCGCGGAqEGAQ25.html|j9GCGCGGAqEGAQ24" id="optionj9GCGCGGAqEGAQ24">Die Note für den Bachelor kann nur eingetragen werden, wenn im ersten bis dritten Semester 90 CP, im vierten und fünfen Semester 30 CP und in der Praxisphase 30 CP erreicht wurden. : Test Case</option>
+<option value="shape|1353.0|676.0|170.0|40.0|TestCase_E5JsGCGGAqEGAQ07.html|TestCase_E5JsGCGGAqEGAQ07.html|E5JsGCGGAqEGAQ06" id="optionE5JsGCGGAqEGAQ06">Maximal 180 CP : Test Case</option>
+<option value="shape|958.0|791.0|127.0|40.0|TestCase_F53MGCGGAqEGAQ0w.html|TestCase_F53MGCGGAqEGAQ0w.html|F53MGCGGAqEGAQ0v" id="optionF53MGCGGAqEGAQ0v">Keine doppelten Fächer : Test Case</option>
+<option value="shape|1622.0|486.0|195.0|63.0|TestCase_TsyMGCGGAqEGAQ0H.html|TestCase_TsyMGCGGAqEGAQ0H.html|jsyMGCGGAqEGAQ0G" id="optionjsyMGCGGAqEGAQ0G">Überprüfen der Anzahl der maximalen Fehlversuche : Test Case</option>
+<option value="shape|1068.0|171.0|240.0|49.0|TestCase_lsYUGCGGAqEGAQxm.html|TestCase_lsYUGCGGAqEGAQxm.html|lsYUGCGGAqEGAQxl" id="optionlsYUGCGGAqEGAQxl">Notendurchschnitt überprüfen : Test Case</option>
+<option value="shape|1679.0|332.0|181.0|51.0|TestCase_0fQUGCGGAqEGAQxb.html|TestCase_0fQUGCGGAqEGAQxb.html|UfQUGCGGAqEGAQxa" id="optionUfQUGCGGAqEGAQxa">Überprüfen ob die Gewichtung korrekt funktioniert : Test Case</option>
+<option value="shape|1612.0|136.0|240.0|78.0|TestCase_0g3EGCGGAqEGAQux.html|TestCase_0g3EGCGGAqEGAQux.html|Ug3EGCGGAqEGAQuw" id="optionUg3EGCGGAqEGAQuw">Die zweite und dritte Note kann nur eingetragen werden, wenn jeweils die Note davor "nicht bestanden" ist. : Test Case</option>
+<option value="shape|1638.0|2.0|189.0|123.0|TestCase_hBhYGCGGAqEGAQtd.html|TestCase_hBhYGCGGAqEGAQtd.html|eBhYGCGGAqEGAQtc" id="optioneBhYGCGGAqEGAQtc">Testen ob die Noten korrekt sind.Noten sind generell im Bereich von 1.0 bis 4.0, können jedoch nur auf x.0, x.3 und x.7 enden. Bei 5..0 gilt eine Note als nicht bestanden.  : Test Case</option>
+<option value="shape|1322.0|450.0|229.0|186.0|Requirement_5kMBqCGFYGGAAQzs.html|Requirement_5kMBqCGFYGGAAQzs.html|ZkMBqCGFYGGAAQzr" id="optionZkMBqCGFYGGAAQzr">Noten Eintragen : Requirement</option>
+<option value="shape|438.0|414.0|264.0|141.0|Requirement_yc_BqCGFYGGAAQ0z.html|Requirement_yc_BqCGFYGGAAQ0z.html|yc_BqCGFYGGAAQ0y" id="optionyc_BqCGFYGGAAQ0y">Noten einsehen inkl Credit Points : Requirement</option>
+<option value="shape|890.0|287.0|244.0|141.0|Requirement_wXKxqCGFYGGAAQ2a.html|Requirement_wXKxqCGFYGGAAQ2a.html|wXKxqCGFYGGAAQ2Z" id="optionwXKxqCGFYGGAAQ2Z">Daten Persistierung : Requirement</option>
+<option value="shape|2.0|480.0|267.0|141.0|Requirement_hD5xqCGFYGGAAQ3m.html|Requirement_hD5xqCGFYGGAAQ3m.html|hD5xqCGFYGGAAQ3l" id="optionhD5xqCGFYGGAAQ3l">GUI / TUI : Requirement</option>
+<option value="shape|1354.0|2.0|228.0|216.0|Requirement_ZwAJqCGFYGGAAQ4q.html|Requirement_ZwAJqCGFYGGAAQ4q.html|ZwAJqCGFYGGAAQ4p" id="optionZwAJqCGFYGGAAQ4p">Gewichtung von Noten für Notendurchschnitt : Requirement</option>
+<option value="shape|450.0|603.0|188.0|171.0|Requirement_PJ3ZqCGFYGGAAQ6q.html|Requirement_PJ3ZqCGFYGGAAQ6q.html|PJ3ZqCGFYGGAAQ6p" id="optionPJ3ZqCGFYGGAAQ6p">Eingaben durch Dialoge : Requirement</option>
+<option value="shape|923.0|588.0|232.0|128.0|Requirement_4_w1qCGFYGGAARHz.html|Requirement_4_w1qCGFYGGAARHz.html|Y_w1qCGFYGGAARHy" id="optionY_w1qCGFYGGAARHy">Student kann Fächer ergänzen : Requirement</option>
+<option value="shape|17.0|671.0|237.0|141.0|Requirement_meh1qCGFYGGAARI5.html|Requirement_meh1qCGFYGGAARI5.html|Geh1qCGFYGGAARI4" id="optionGeh1qCGFYGGAARI4">Einzelplatzanwendung : Requirement</option>
+<option value="shape|332.0|17.0|237.0|186.0|Requirement_9r2kGCGGAqEGAQwD.html|Requirement_9r2kGCGGAqEGAQwD.html|9r2kGCGGAqEGAQwC" id="option9r2kGCGGAqEGAQwC">Zweites Fenster für Kolloquium und Abschlussarbeit : Requirement</option>
+<option value="shape|1313.0|756.0|251.0|141.0|Requirement_oJucGCGGAqEGAQ1U.html|Requirement_oJucGCGGAqEGAQ1U.html|oJucGCGGAqEGAQ1T" id="optionoJucGCGGAqEGAQ1T">Eintragen der ECTS für Praxisphase : Requirement</option>
+</select>				</td>
+			</tr>
+		</table>
+		<table border="0" cellpadding="0" width="100%" cellspacing="0" style="position: relative; top: 24;">
+			<tr>
+				<td>
+					<img id="diagram" src="../images/Requirement_Diagram1.png" usemap="#diagram_map" class="Image" width="1864" height="901"/>
+					<map name="diagram_map">
+<area coords="599,466,628,481" coords2="599,466,628,481" shape="rect" alt="ECTS" href="GridDiagram_zXc0qCGFYGGAAQuz.html#tXc0qCGFYGGAAQuy"/>
+<area coords="464,481,493,496" coords2="464,481,493,496" shape="rect" alt="ECTS" href="GridDiagram_zXc0qCGFYGGAAQuz.html#tXc0qCGFYGGAAQuy"/>
+<area coords="358,113,506,128" coords2="358,113,506,128" shape="rect" alt="Notendurchschnitt (Gewichtet)" href="GridDiagram_zXc0qCGFYGGAAQuz.html#J6h0GCGGAqEGAQx6"/>
+<area coords="1319,807,1348,822" coords2="1319,807,1348,822" shape="rect" alt="ECTS" href="GridDiagram_zXc0qCGFYGGAAQuz.html#tXc0qCGFYGGAAQuy"/>
+<area imageId="diagram" coords="269.0, 613.0, 269.0, 621.0, 258.0, 621.0, 258.0, 627.0, 450.0, 627.0, 450.0, 613.0" coords2="269.0, 613.0, 269.0, 621.0, 258.0, 621.0, 258.0, 627.0, 450.0, 627.0, 450.0, 613.0" shape="poly" alt=":Dependency" id="areadiagram_map_LwcVqCGFYGGAARFp_default" href="Dependency_TwcVqCGFYGGAARFo.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1146.0, 581.0, 1146.0, 588.0, 1155.0, 588.0, 1155.0, 595.0, 1322.0, 595.0, 1322.0, 581.0" coords2="1146.0, 581.0, 1146.0, 588.0, 1155.0, 588.0, 1155.0, 595.0, 1322.0, 595.0, 1322.0, 581.0" shape="poly" alt=":Derive" id="areadiagram_map_yzS1qCGFYGGAARIm_default" href="RequirementDerive_izS1qCGFYGGAARIl.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="102.0, 621.0, 102.0, 671.0, 116.0, 671.0, 116.0, 621.0" coords2="102.0, 621.0, 102.0, 671.0, 116.0, 671.0, 116.0, 621.0" shape="poly" alt=":Derive" id="areadiagram_map_kTV1qCGFYGGAARJc_default" href="RequirementDerive_4TV1qCGFYGGAARJb.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="569.0, 183.0, 569.0, 197.0, 1068.0, 197.0, 1068.0, 183.0" coords2="569.0, 183.0, 569.0, 197.0, 1068.0, 197.0, 1068.0, 183.0" shape="poly" alt=":Verify" id="areadiagram_map_49LKGCGGAqEGAQ5R_default" href="Verify_rdLKGCGGAqEGAQ5Q.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="741.0, 280.0, 741.0, 294.0, 890.0, 294.0, 890.0, 287.0, 900.0, 287.0, 900.0, 280.0" coords2="741.0, 280.0, 741.0, 294.0, 890.0, 294.0, 890.0, 287.0, 900.0, 287.0, 900.0, 280.0" shape="poly" alt=":Verify" id="areadiagram_map_.tbKGCGGAqEGAQ5e_default" href="Verify_YtbKGCGGAqEGAQ5d.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1582.0, 155.0, 1582.0, 169.0, 1612.0, 169.0, 1612.0, 155.0" coords2="1582.0, 155.0, 1582.0, 169.0, 1612.0, 169.0, 1612.0, 155.0" shape="poly" alt=":Verify" id="areadiagram_map_p7HKGCGGAqEGAQ5k_default" href="Verify_c7HKGCGGAqEGAQ5j.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1582.0, 89.0, 1582.0, 103.0, 1638.0, 103.0, 1638.0, 89.0" coords2="1582.0, 89.0, 1582.0, 103.0, 1638.0, 103.0, 1638.0, 89.0" shape="poly" alt=":Verify" id="areadiagram_map_E7nKGCGGAqEGAQ5o_default" href="Verify_tbnKGCGGAqEGAQ5n.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1490.0, 383.0, 1490.0, 450.0, 1504.0, 450.0, 1504.0, 383.0" coords2="1490.0, 383.0, 1490.0, 450.0, 1504.0, 450.0, 1504.0, 383.0" shape="poly" alt=":Verify" id="areadiagram_map_E03KGCGGAqEGAQ5s_default" href="Verify_9U3KGCGGAqEGAQ5r.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="569.0, 106.0, 569.0, 120.0, 1354.0, 120.0, 1354.0, 106.0" coords2="569.0, 106.0, 569.0, 120.0, 1354.0, 120.0, 1354.0, 106.0" shape="poly" alt=":Derive" id="areadiagram_map_FG4OGCGGAqEGAQ6h_default" href="RequirementDerive_CG4OGCGGAqEGAQ6g.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="638.0, 637.0, 638.0, 651.0, 923.0, 651.0, 923.0, 637.0" coords2="638.0, 637.0, 638.0, 651.0, 923.0, 651.0, 923.0, 637.0" shape="poly" alt=":Refine" id="areadiagram_map_JtcOGCGGAqEGAQ60_default" href="RQRefine_stcOGCGGAqEGAQ6z.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1004.0, 716.0, 1004.0, 791.0, 1018.0, 791.0, 1018.0, 716.0" coords2="1004.0, 716.0, 1004.0, 791.0, 1018.0, 791.0, 1018.0, 716.0" shape="poly" alt=":Verify" id="areadiagram_map_0kiOGCGGAqEGAQ65_default" href="Verify_bEiOGCGGAqEGAQ64.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1447.0, 636.0, 1447.0, 676.0, 1461.0, 676.0, 1461.0, 636.0" coords2="1447.0, 636.0, 1447.0, 676.0, 1461.0, 676.0, 1461.0, 636.0" shape="poly" alt=":Verify" id="areadiagram_map_y2yOGCGGAqEGAQ69_default" href="Verify_vWyOGCGGAqEGAQ68.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1427.0, 716.0, 1427.0, 756.0, 1441.0, 756.0, 1441.0, 716.0" coords2="1427.0, 716.0, 1427.0, 756.0, 1441.0, 756.0, 1441.0, 716.0" shape="poly" alt=":Verify" id="areadiagram_map_OMGOGCGGAqEGAQ7I_default" href="Verify_MMGOGCGGAqEGAQ7H.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1551.0, 524.0, 1551.0, 538.0, 1622.0, 538.0, 1622.0, 524.0" coords2="1551.0, 524.0, 1551.0, 538.0, 1622.0, 538.0, 1622.0, 524.0" shape="poly" alt=":Verify" id="areadiagram_map_gnhOGCGGAqEGAQ7M_default" href="Verify_NHhOGCGGAqEGAQ7L.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1582.0, 206.0, 1582.0, 218.0, 1573.5078, 218.0, 1678.0, 343.0, 1679.0, 342.18182, 1679.0, 332.0, 1687.3281, 332.0, 1582.0, 206.0" coords2="1582.0, 206.0, 1582.0, 218.0, 1573.5078, 218.0, 1678.0, 343.0, 1679.0, 342.18182, 1679.0, 332.0, 1687.3281, 332.0, 1582.0, 206.0" shape="poly" alt=":Verify" id="areadiagram_map_O.pOGCGGAqEGAQ7U_default" href="Verify_E_pOGCGGAqEGAQ7T.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="269.0, 515.0, 269.0, 529.0, 438.0, 529.0, 438.0, 515.0" coords2="269.0, 515.0, 269.0, 529.0, 438.0, 529.0, 438.0, 515.0" shape="poly" alt=":Refine" id="areadiagram_map_jE1OGCGGAqEGAQ7Y_default" href="RQRefine_6E1OGCGGAqEGAQ7X.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1134.0, 422.564, 1134.0, 428.0, 1119.0, 428.0, 1119.0, 435.0, 1322.0, 456.16586, 1322.0, 450.0, 1330.0, 450.0, 1330.0, 443.0, 1134.0, 422.564" coords2="1134.0, 422.564, 1134.0, 428.0, 1119.0, 428.0, 1119.0, 435.0, 1322.0, 456.16586, 1322.0, 450.0, 1330.0, 450.0, 1330.0, 443.0, 1134.0, 422.564" shape="poly" alt=":Verify" id="areadiagram_map_egrOGCGGAqEGAQ7k_default" href="Verify_EgrOGCGGAqEGAQ7j.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="326.0, 191.0, 260.80472, 480.0, 269.0, 480.0, 269.0, 489.42856, 269.0, 489.42856, 273.0, 490.0, 337.7441, 203.0, 332.0, 203.0, 332.0, 191.85715, 326.0, 191.0" coords2="326.0, 191.0, 260.80472, 480.0, 269.0, 480.0, 269.0, 489.42856, 269.0, 489.42856, 273.0, 490.0, 337.7441, 203.0, 332.0, 203.0, 332.0, 191.85715, 326.0, 191.0" shape="poly" alt=":Refine" id="areadiagram_map_cqfOGCGGAqEGAQ70_default" href="RQRefine_AqfOGCGGAqEGAQ7z.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="501, 253, 741, 314" coords2="501, 253, 741, 314" shape="rect" alt="Überprüfen ob die Daten bei Programmstart geladen werden und bei jeder Aktion gespeichert werden.:Test Case" id="areadiagram_map_IA8SGCGGAqEGAQ3L_default" href="TestCase_IA8SGCGGAqEGAQ3M.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1348, 280, 1588, 383" coords2="1348, 280, 1588, 383" shape="rect" alt="Die Note für den Bachelor kann nur eingetragen werden, wenn im ersten bis dritten Semester 90 CP, im vierten und fünfen Semester 30 CP und in der Praxisphase 30 CP erreicht wurden.:Test Case" id="areadiagram_map_j9GCGCGGAqEGAQ24_default" href="TestCase_T9GCGCGGAqEGAQ25.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1313, 756, 1564, 897" coords2="1313, 756, 1564, 897" shape="rect" alt="Eintragen der ECTS für Praxisphase:Requirement" id="areadiagram_map_oJucGCGGAqEGAQ1T_default" href="Requirement_oJucGCGGAqEGAQ1U.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1353, 676, 1523, 716" coords2="1353, 676, 1523, 716" shape="rect" alt="Maximal 180 CP:Test Case" id="areadiagram_map_E5JsGCGGAqEGAQ06_default" href="TestCase_E5JsGCGGAqEGAQ07.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="958, 791, 1085, 831" coords2="958, 791, 1085, 831" shape="rect" alt="Keine doppelten Fächer:Test Case" id="areadiagram_map_F53MGCGGAqEGAQ0v_default" href="TestCase_F53MGCGGAqEGAQ0w.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1622, 486, 1817, 549" coords2="1622, 486, 1817, 549" shape="rect" alt="Überprüfen der Anzahl der maximalen Fehlversuche:Test Case" id="areadiagram_map_jsyMGCGGAqEGAQ0G_default" href="TestCase_TsyMGCGGAqEGAQ0H.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1068, 171, 1308, 220" coords2="1068, 171, 1308, 220" shape="rect" alt="Notendurchschnitt überprüfen:Test Case" id="areadiagram_map_lsYUGCGGAqEGAQxl_default" href="TestCase_lsYUGCGGAqEGAQxm.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1679, 332, 1860, 383" coords2="1679, 332, 1860, 383" shape="rect" alt="Überprüfen ob die Gewichtung korrekt funktioniert:Test Case" id="areadiagram_map_UfQUGCGGAqEGAQxa_default" href="TestCase_0fQUGCGGAqEGAQxb.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="332, 17, 569, 203" coords2="332, 17, 569, 203" shape="rect" alt="Zweites Fenster für Kolloquium und Abschlussarbeit:Requirement" id="areadiagram_map_9r2kGCGGAqEGAQwC_default" href="Requirement_9r2kGCGGAqEGAQwD.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1612, 136, 1852, 214" coords2="1612, 136, 1852, 214" shape="rect" alt="Die zweite und dritte Note kann nur eingetragen werden, wenn jeweils die Note davor "nicht bestanden" ist.:Test Case" id="areadiagram_map_Ug3EGCGGAqEGAQuw_default" href="TestCase_0g3EGCGGAqEGAQux.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1638, 2, 1827, 125" coords2="1638, 2, 1827, 125" shape="rect" alt="Testen ob die Noten korrekt sind.Noten sind generell im Bereich von 1.0 bis 4.0, können jedoch nur auf x.0, x.3 und x.7 enden. Bei 5..0 gilt eine Note als nicht bestanden. :Test Case" id="areadiagram_map_eBhYGCGGAqEGAQtc_default" href="TestCase_hBhYGCGGAqEGAQtd.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="17, 671, 254, 812" coords2="17, 671, 254, 812" shape="rect" alt="Einzelplatzanwendung:Requirement" id="areadiagram_map_Geh1qCGFYGGAARI4_default" href="Requirement_meh1qCGFYGGAARI5.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-right:0;margin-left:0;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-top:0pt;margin-bottom:.0001pt;margin-right:0pt;margin-left:0pt;&amp;quot;&amp;gt;
+      Wahlpfl&amp;#228;cher
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="923, 588, 1155, 716" coords2="923, 588, 1155, 716" shape="rect" alt="Student kann Fächer ergänzen:Requirement" id="areadiagram_map_Y_w1qCGFYGGAARHy_default" href="Requirement_4_w1qCGFYGGAARHz.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" coords="450, 603, 638, 774" coords2="450, 603, 638, 774" shape="rect" alt="Eingaben durch Dialoge:Requirement" id="areadiagram_map_PJ3ZqCGFYGGAAQ6p_default" href="Requirement_PJ3ZqCGFYGGAAQ6q.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1354, 2, 1582, 218" coords2="1354, 2, 1582, 218" shape="rect" alt="Gewichtung von Noten für Notendurchschnitt:Requirement" id="areadiagram_map_ZwAJqCGFYGGAAQ4p_default" href="Requirement_ZwAJqCGFYGGAAQ4q.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="2, 480, 269, 621" coords2="2, 480, 269, 621" shape="rect" alt="GUI / TUI:Requirement" id="areadiagram_map_hD5xqCGFYGGAAQ3l_default" href="Requirement_hD5xqCGFYGGAAQ3m.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="890, 287, 1134, 428" coords2="890, 287, 1134, 428" shape="rect" alt="Daten Persistierung:Requirement" id="areadiagram_map_wXKxqCGFYGGAAQ2Z_default" href="Requirement_wXKxqCGFYGGAAQ2a.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="438, 414, 702, 555" coords2="438, 414, 702, 555" shape="rect" alt="Noten einsehen inkl Credit Points:Requirement" id="areadiagram_map_yc_BqCGFYGGAAQ0y_default" href="Requirement_yc_BqCGFYGGAAQ0z.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1322, 450, 1551, 636" coords2="1322, 450, 1551, 636" shape="rect" alt="Noten Eintragen:Requirement" id="areadiagram_map_ZkMBqCGFYGGAAQzr_default" href="Requirement_5kMBqCGFYGGAAQzs.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+</map>
+				</td>
+			</tr>
+		</table>
+		<p>
+		</p>
+	</div>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="Category">
+				Model Elements			</td>
+		</tr>
+		<tr>
+			<td style="height: 5px">
+			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td colSpan="4" class="TableHeaderLine">
+			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine1">
+			</td>
+		</tr>
+		<tr class="TableHeader">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td width="30%">
+<span class="TableHeaderText">Name</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+<span class="TableHeaderText">Description</span>			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine2">
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/TestCase.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/TestCase.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="TestCase_IA8SGCGGAqEGAQ3M.html" class="ItemLink">Überprüfen ob die Daten bei Programmstart geladen werden und bei jeder Aktion gespeichert werden. : Test Case</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/TestCase.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/TestCase.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="TestCase_T9GCGCGGAqEGAQ25.html" class="ItemLink">Die Note für den Bachelor kann nur eingetragen werden, wenn im ersten bis dritten Semester 90 CP, im vierten und fünfen Semester 30 CP und in der Praxisphase 30 CP erreicht wurden. : Test Case</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/TestCase.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/TestCase.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="TestCase_E5JsGCGGAqEGAQ07.html" class="ItemLink">Maximal 180 CP : Test Case</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/TestCase.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/TestCase.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="TestCase_F53MGCGGAqEGAQ0w.html" class="ItemLink">Keine doppelten Fächer : Test Case</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/TestCase.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/TestCase.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="TestCase_TsyMGCGGAqEGAQ0H.html" class="ItemLink">Überprüfen der Anzahl der maximalen Fehlversuche : Test Case</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/TestCase.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/TestCase.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="TestCase_lsYUGCGGAqEGAQxm.html" class="ItemLink">Notendurchschnitt überprüfen : Test Case</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/TestCase.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/TestCase.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="TestCase_0fQUGCGGAqEGAQxb.html" class="ItemLink">Überprüfen ob die Gewichtung korrekt funktioniert : Test Case</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/TestCase.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/TestCase.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="TestCase_0g3EGCGGAqEGAQux.html" class="ItemLink">Die zweite und dritte Note kann nur eingetragen werden, wenn jeweils die Note davor "nicht bestanden" ist. : Test Case</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/TestCase.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/TestCase.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="TestCase_hBhYGCGGAqEGAQtd.html" class="ItemLink">Testen ob die Noten korrekt sind.Noten sind generell im Bereich von 1.0 bis 4.0, können jedoch nur auf x.0, x.3 und x.7 enden. Bei 5..0 gilt eine Note als nicht bestanden.  : Test Case</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Requirement.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Requirement.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Requirement_5kMBqCGFYGGAAQzs.html" class="ItemLink">Noten Eintragen : Requirement</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Requirement.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Requirement.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Requirement_yc_BqCGFYGGAAQ0z.html" class="ItemLink">Noten einsehen inkl Credit Points : Requirement</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Requirement.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Requirement.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Requirement_wXKxqCGFYGGAAQ2a.html" class="ItemLink">Daten Persistierung : Requirement</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Requirement.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Requirement.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Requirement_hD5xqCGFYGGAAQ3m.html" class="ItemLink">GUI / TUI : Requirement</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Requirement.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Requirement.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Requirement_ZwAJqCGFYGGAAQ4q.html" class="ItemLink">Gewichtung von Noten für Notendurchschnitt : Requirement</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Requirement.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Requirement.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Requirement_PJ3ZqCGFYGGAAQ6q.html" class="ItemLink">Eingaben durch Dialoge : Requirement</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Requirement.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Requirement.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Requirement_4_w1qCGFYGGAARHz.html" class="ItemLink">Student kann Fächer ergänzen : Requirement</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="color:#000000;font-weight:normal;font-size:12px;font-family:Dialog;margin-right:0;margin-left:0;">
+    <p style="margin-top:0pt;margin-bottom:.0001pt;margin-right:0pt;margin-left:0pt;">
+      Wahlpfl&#228;cher
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Requirement.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Requirement.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Requirement_meh1qCGFYGGAARI5.html" class="ItemLink">Einzelplatzanwendung : Requirement</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Requirement.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Requirement.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Requirement_9r2kGCGGAqEGAQwD.html" class="ItemLink">Zweites Fenster für Kolloquium und Abschlussarbeit : Requirement</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Requirement.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Requirement.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <a href="Requirement_oJucGCGGAqEGAQ1U.html" class="ItemLink">Eintragen der ECTS für Praxisphase : Requirement</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="TableCellSpaceHolder1PxTall">
+			</td>
+		</tr>
+		<tr>
+			<td class="TableFooter">
+			</td>
+		</tr>
+	</table>
+	<div style="height: 20px">
+	</div>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="FooterLine">
+			</td>
+		</tr>
+	</table>
+	<div class="HeaderText">
+		Blatt3	</div>
+</body>
+</html>

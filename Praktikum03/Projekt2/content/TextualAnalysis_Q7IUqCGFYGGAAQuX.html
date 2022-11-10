@@ -1,0 +1,883 @@
+<html>
+<head>
+	<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="report.css" type="text/css"/>
+	<title>Textual Analysis - Textual Analysis1</title>
+	<script type="text/javascript" src="report.js"></script>
+	<script type="text/javascript" src="link_popup.js"></script>
+	<script type="text/javascript" src="tooltip.js"></script>
+</head>
+<body style="margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px;" onload="initPage();initDiagram();initGridDiagram();">
+	<div style="position:absolute; z-index:2; visibility:hidden;border-top: 2px #FF0000 solid;" id="spotlight_top">
+	</div>
+	<div style="position:absolute; z-index:2; visibility:hidden;border-top: 2px #FF0000 solid;" id="spotlight_bottom">
+	</div>
+	<div style="position:absolute; z-index:2; visibility:hidden;border-left: 2px #FF0000 solid;" id="spotlight_left">
+	</div>
+	<div style="position:absolute; z-index:2; visibility:hidden;border-left: 2px #FF0000 solid;" id="spotlight_right">
+	</div>
+	<canvas width="100" style="position:absolute; z-index:2; visibility:hidden" id="spotlight_c" height="100">
+	</canvas>
+	<div style="position:absolute; width:100px; height:100px; z-index:1; visibility:hidden" id="spotLightResourcesTop">
+		<table border="0" cellpadding="0" cellspacing="0">
+			<tr>
+				<td>
+<a href="#top"><img style="border:none" src="../images/icons/BackToTop.gif" alt="Back to top"/></a>				</td>
+				<td>
+<a href="javascript:clearSpotLightFromOpenSpecButton();"><img style="border:none" src="../images/icons/OpenSpecification.gif" alt="Open specification"/></a>				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute; width:100px; height:100px; z-index:1; visibility:hidden" id="spotLightResourcesRight">
+		<table border="0" cellpadding="0" cellspacing="0">
+			<tr>
+				<td>
+<a href="#top"><img style="border:none" src="../images/icons/BackToTop.gif" alt="Back to top"/></a>				</td>
+			</tr>
+			<tr>
+				<td>
+<a href="javascript:clearSpotLightFromOpenSpecButton();"><img style="border:none" src="../images/icons/OpenSpecification.gif" alt="Open specification"/></a>				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute;z-index:4;visibility:hidden" id="linkPopupMenuLayer">
+		<table border="0" width="100%" style="border-style:solid; border-width:1px; border-color:#000000; background:#FFFFFF; width:250px" id="linkPopupMenuTable">
+		</table>
+	</div>
+	<div style="position:absolute; z-index:1; visibility:hidden; " id="referenceIconLayer">
+		<table border="0" cellpadding="3" cellspacing="0" style="font-size:1;">
+			<tr>
+				<td>
+					<img src="../images/icons/Ref.gif" style="border:none" onclick="movePopupPositionToReferenceIconPosition();resetPopupForReference();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute; z-index:1; visibility:hidden; " id="subdiagramIconLayer">
+		<table border="0" cellpadding="3" cellspacing="0" style="font-size:1;">
+			<tr>
+				<td>
+					<img src="../images/icons/Subdiagram.gif" style="border:none" onclick="movePopupPositionToSubdiagramIconPosition();resetPopupForSubdiagram();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute; z-index:1; visibility:hidden; " id="transitorIconLayer">
+		<table border="0" cellpadding="3" cellspacing="0" style="font-size:1;">
+			<tr>
+				<td>
+					<img src="../images/icons/Transitor.gif" style="border:none" onclick="movePopupPositionToTransitorIconPosition();resetPopupForTransitor();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute; z-index:1; visibility:hidden; " id="documentationIconLayer">
+		<table border="0" cellpadding="3" cellspacing="0" style="font-size:1;">
+			<tr>
+				<td>
+					<img src="../images/icons/Documentation.png" style="border:none" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div class="HeaderText">
+		Blatt3	</div>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="HeaderLine1">
+			</td>
+		</tr>
+		<tr>
+			<td class="HeaderLine2">
+			</td>
+		</tr>
+		<tr>
+			<td class="HeaderLine3">
+			</td>
+		</tr>
+	</table>
+	<div style="position:absolute; z-index:21; visibility:hidden" id="referencedBys">
+		<table border="0" width="100%" style="border-style:solid; border-width:1px; border-color:#000000; background:#FFFFFF; width:250px" id="referencedBysTable">
+		</table>
+	</div>
+	<div style="position:absolute; z-index:21; visibility:hidden" id="vplink">
+		<table border="1" cellpadding="0" cellspacing="0" bordercolor="#A9BFD3">
+			<tr>
+				<td>
+					<table border="0" cellpadding="0" width="100%" cellspacing="0">
+						<tr style="background:#DDDDDD">
+							<td style="font-size: 12px;" align="left">
+								<select onchange="vpLinkToggleName()" id="vplink-linkType">
+	<option value="Project Link">Project Link</option>
+	<option value="Page URL">Page URL</option>
+</select>
+							</td>
+							<td style="font-size: 12px;" align="right">
+								<input onclick="javascript: vpLinkToggleName()" id="vplink-checkbox" type="checkbox" />
+								<label for="vplink-checkbox">with Name</label>							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<textarea id="vplink-text" style="width: 348px; height: 60px; border-color: #7EADD9; outline: none;"></textarea>				</td>
+			</tr>
+		</table>
+	</div>
+	<p class="PageTitle">
+		<span id="PageTitleText">
+			Textual Analysis - Textual Analysis1		</span>
+<a onclick="javascript: showVpLink('Blatt3.vpp://diagram/Q7IUqCGFYGGAAQuX', 'Textual Analysis1\nBlatt3.vpp://diagram/Q7IUqCGFYGGAAQuX', 'Textual Analysis1', this); return false;" style="padding-left: 16px; font-size: 12px" href="#"><img src="../images/icons/link.png" border="0"> link</a>	</p>
+	<p>
+	</p>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="Category">
+Problem Statement			</td>
+		</tr>
+		<tr>
+			<td class="TableCellSpaceHolder5PxTall">
+			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="TableHeaderLine">
+			</td>
+		</tr>
+		<tr>
+			<td class="TableHeaderLine1">
+			</td>
+		</tr>
+		<tr>
+			<td class="TableContent">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="color:#000000;font-weight:normal;font-size:22px;font-family:Dialog;margin-right:0;margin-left:0;">
+    <p style="margin-top:0pt;margin-bottom:.0001pt;margin-right:0pt;margin-left:0pt;">
+      Es soll ein kleines Programm entworfen werden, mit dem jeder <span bgcolor="#f4b063" style="background-color:#f4b063;">Student</span> 
+      seine <span bgcolor="#ffff00" style="background-color:#ffff00;">Pr&#252;fungsleistungen</span>&nbsp;<span bgcolor="#90cb48" style="background-color:#90cb48;">verwalten</span> 
+      kann. Dieses Programm soll ihn in die Lage versetzen, ihm jederzeit <span bgcolor="#ffff00" style="background-color:#ffff00;">Auskunft</span> 
+      &#252;ber die bereits <span bgcolor="#ffff00" style="background-color:#ffff00;">erbrachten 
+      Leistungen</span> zu geben - sofern er die Daten immer <span bgcolor="#ffff00" style="background-color:#ffff00;">rechtzeitig 
+      aktualisiert</span> hat. Dazu sind im Programm die zu <span bgcolor="#ffff00" style="background-color:#ffff00;">belegenden 
+      F&#228;cher zu erfassen</span> und ggf. um individuelle F&#228;cher zu 
+      erg&#228;nzen (<span bgcolor="#ffff00" style="background-color:#ffff00;">Wahlf&#228;cher</span>). 
+      Zu jedem Fach m&#252;ssen <span bgcolor="#ffff00" style="background-color:#ffff00;">maximal 
+      drei Noten</span> eingetragen werden k&#246;nnen entsprechend der Anzahl der 
+      m&#246;glichen Versuche. Ferner sind die <a class="ItemLink" href="GridDiagram_zXc0qCGFYGGAAQuz.html#tXc0qCGFYGGAAQuy" name="" onclick="javascript: highlightGridModelSelection('tXc0qCGFYGGAAQuy');">Creditpoints</a> 
+      f&#252;r jedes Fach zu erfassen. In der &#220;bersicht der bereits <span bgcolor="#ffff00" style="background-color:#ffff00;">erbrachten 
+      Leistungen</span> sind die <span bgcolor="#ffff00" style="background-color:#ffff00;">Summen 
+      der <a class="ItemLink" href="GridDiagram_zXc0qCGFYGGAAQuz.html#tXc0qCGFYGGAAQuy" name="" onclick="javascript: highlightGridModelSelection('tXc0qCGFYGGAAQuy');">Creditpoints</a></span> 
+      sowie der bislang erzielte <span bgcolor="#ffff00" style="background-color:#ffff00;"><a class="ItemLink" href="GridDiagram_zXc0qCGFYGGAAQuz.html#J6h0GCGGAqEGAQx6" name="" onclick="javascript: highlightGridModelSelection('J6h0GCGGAqEGAQx6');">Notendurchschnitt</a></span> 
+      anzuzeigen. Die <span bgcolor="#ffff00" style="background-color:#ffff00;">Noten 
+      der Abschlussarbeit</span> und des <span bgcolor="#ffff00" style="background-color:#ffff00;">Kolloquiums</span> 
+      sollen in einem <span bgcolor="#ffff00" style="background-color:#ffff00;">separaten 
+      Fenster</span> erfasst werden. Hier wird auch die erzielte <span bgcolor="#ffff00" style="background-color:#ffff00;"><a class="ItemLink" href="GridDiagram_zXc0qCGFYGGAAQuz.html#J6h0GCGGAqEGAQx6" name="" onclick="javascript: highlightGridModelSelection('J6h0GCGGAqEGAQx6');">Durchschnittsnote</a></span> 
+      automatisch nach Eingabe der jeweiligen Noten ermittelt (<span bgcolor="#ffff00" style="background-color:#ffff00;">Gewichtungsfaktoren 
+      beachten</span>). Das Programm soll als Einzelplatzanwendung fungieren. 
+      Die <span bgcolor="#ffff00" style="background-color:#ffff00;">Oberfl&#228;che</span> 
+      kann in Swing oder FX erstellt oder zeichenorientiert angelegt sein 
+      (durch Listenausgabe mit Print-Anweisungen, <span bgcolor="#ffff00" style="background-color:#ffff00;">Eingaben 
+      durch entsprechende textuelle Dialoge</span>). Die <span bgcolor="#ffff00" style="background-color:#ffff00;">Persistierung</span> 
+      der einzelnen Daten (F&#228;cher und Noten) ist vorzusehen
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr>
+			<td class="TableHeaderLine2">
+			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="TableCellSpaceHolder1PxTall">
+			</td>
+		</tr>
+		<tr>
+			<td class="TableFooter">
+			</td>
+		</tr>
+	</table>
+	<p>
+	</p>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="Category">
+Candidate items			</td>
+		</tr>
+		<tr>
+			<td class="TableCellSpaceHolder5PxTall">
+			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td colSpan="12" class="TableHeaderLine">
+			</td>
+		</tr>
+		<tr>
+			<td colSpan="12" class="TableHeaderLine1">
+			</td>
+		</tr>
+		<tr class="TableHeader">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td width="25%">
+<span class="TableHeaderText">Candidate Class</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+<span class="TableHeaderText">Extracted Text</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+<span class="TableHeaderText">Type</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+<span class="TableHeaderText">Description</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+<span class="TableHeaderText">Occurrence</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+<span class="TableHeaderText">Highlight</span>			</td>
+		</tr>
+		<tr>
+			<td colSpan="12" class="TableHeaderLine2">
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td class="TableContent">
+rechtzeitig aktualisiert			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+rechtzeitig aktualisiert			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Requirement.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Requirement.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <span style="line-height: 18px">Requirement</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+1			</td>
+			<td>
+			</td>
+			<td>
+				<div style="background: #ffff00; line-height: 12px; margin: 3px;">
+&nbsp;				</div>
+			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td class="TableContent">
+Student			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+Student			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Actor.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Actor.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <span style="line-height: 18px">Actor</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+1			</td>
+			<td>
+			</td>
+			<td>
+				<div style="background: #f4b063; line-height: 12px; margin: 3px;">
+&nbsp;				</div>
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td class="TableContent">
+verwalten			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+verwalten			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UseCase.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UseCase.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <span style="line-height: 18px">Use Case</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+1			</td>
+			<td>
+			</td>
+			<td>
+				<div style="background: #90cb48; line-height: 12px; margin: 3px;">
+&nbsp;				</div>
+			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td class="TableContent">
+Wahlfächer			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+Wahlfächer			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Requirement.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Requirement.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <span style="line-height: 18px">Requirement</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+1			</td>
+			<td>
+			</td>
+			<td>
+				<div style="background: #ffff00; line-height: 12px; margin: 3px;">
+&nbsp;				</div>
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td class="TableContent">
+Auskunft			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+Auskunft			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Requirement.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Requirement.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <span style="line-height: 18px">Requirement</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+1			</td>
+			<td>
+			</td>
+			<td>
+				<div style="background: #ffff00; line-height: 12px; margin: 3px;">
+&nbsp;				</div>
+			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td class="TableContent">
+maximal drei Noten			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+maximal drei Noten			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Requirement.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Requirement.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <span style="line-height: 18px">Requirement</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+1			</td>
+			<td>
+			</td>
+			<td>
+				<div style="background: #ffff00; line-height: 12px; margin: 3px;">
+&nbsp;				</div>
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td class="TableContent">
+<a onclick="javascript: highlightGridModelSelection('J6h0GCGGAqEGAQx6');" href="GridDiagram_zXc0qCGFYGGAAQuz.html#J6h0GCGGAqEGAQx6" class="ItemLink">Notendurchschnitt</a>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+<a onclick="javascript: highlightGridModelSelection('J6h0GCGGAqEGAQx6');" href="GridDiagram_zXc0qCGFYGGAAQuz.html#J6h0GCGGAqEGAQx6" class="ItemLink">Notendurchschnitt</a>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Requirement.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Requirement.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <span style="line-height: 18px">Requirement</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+1			</td>
+			<td>
+			</td>
+			<td>
+				<div style="background: #ffff00; line-height: 12px; margin: 3px;">
+&nbsp;				</div>
+			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td class="TableContent">
+Summen der <a onclick="javascript: highlightGridModelSelection('tXc0qCGFYGGAAQuy');" href="GridDiagram_zXc0qCGFYGGAAQuz.html#tXc0qCGFYGGAAQuy" class="ItemLink">Creditpoints</a>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+Summen der <a onclick="javascript: highlightGridModelSelection('tXc0qCGFYGGAAQuy');" href="GridDiagram_zXc0qCGFYGGAAQuz.html#tXc0qCGFYGGAAQuy" class="ItemLink">Creditpoints</a>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Requirement.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Requirement.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <span style="line-height: 18px">Requirement</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+1			</td>
+			<td>
+			</td>
+			<td>
+				<div style="background: #ffff00; line-height: 12px; margin: 3px;">
+&nbsp;				</div>
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td class="TableContent">
+Prüfungsleistungen			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+Prüfungsleistungen			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Requirement.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Requirement.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <span style="line-height: 18px">Requirement</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+1			</td>
+			<td>
+			</td>
+			<td>
+				<div style="background: #ffff00; line-height: 12px; margin: 3px;">
+&nbsp;				</div>
+			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td class="TableContent">
+erbrachten Leistungen			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+erbrachten Leistungen			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Requirement.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Requirement.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <span style="line-height: 18px">Requirement</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+2			</td>
+			<td>
+			</td>
+			<td>
+				<div style="background: #ffff00; line-height: 12px; margin: 3px;">
+&nbsp;				</div>
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td class="TableContent">
+Noten der Abschlussarbeit			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+Noten der Abschlussarbeit			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Requirement.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Requirement.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <span style="line-height: 18px">Requirement</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+1			</td>
+			<td>
+			</td>
+			<td>
+				<div style="background: #ffff00; line-height: 12px; margin: 3px;">
+&nbsp;				</div>
+			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td class="TableContent">
+Kolloquiums			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+Kolloquiums			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Requirement.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Requirement.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <span style="line-height: 18px">Requirement</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+1			</td>
+			<td>
+			</td>
+			<td>
+				<div style="background: #ffff00; line-height: 12px; margin: 3px;">
+&nbsp;				</div>
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td class="TableContent">
+separaten Fenster			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+separaten Fenster			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Requirement.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Requirement.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <span style="line-height: 18px">Requirement</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+1			</td>
+			<td>
+			</td>
+			<td>
+				<div style="background: #ffff00; line-height: 12px; margin: 3px;">
+&nbsp;				</div>
+			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td class="TableContent">
+belegenden Fächer zu erfassen			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+belegenden Fächer zu erfassen			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Requirement.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Requirement.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <span style="line-height: 18px">Requirement</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+1			</td>
+			<td>
+			</td>
+			<td>
+				<div style="background: #ffff00; line-height: 12px; margin: 3px;">
+&nbsp;				</div>
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td class="TableContent">
+<a onclick="javascript: highlightGridModelSelection('J6h0GCGGAqEGAQx6');" href="GridDiagram_zXc0qCGFYGGAAQuz.html#J6h0GCGGAqEGAQx6" class="ItemLink">Durchschnittsnote</a>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+<a onclick="javascript: highlightGridModelSelection('J6h0GCGGAqEGAQx6');" href="GridDiagram_zXc0qCGFYGGAAQuz.html#J6h0GCGGAqEGAQx6" class="ItemLink">Durchschnittsnote</a>			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Requirement.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Requirement.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <span style="line-height: 18px">Requirement</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+1			</td>
+			<td>
+			</td>
+			<td>
+				<div style="background: #ffff00; line-height: 12px; margin: 3px;">
+&nbsp;				</div>
+			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td class="TableContent">
+Gewichtungsfaktoren beachten			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+Gewichtungsfaktoren beachten			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Requirement.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Requirement.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <span style="line-height: 18px">Requirement</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+1			</td>
+			<td>
+			</td>
+			<td>
+				<div style="background: #ffff00; line-height: 12px; margin: 3px;">
+&nbsp;				</div>
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td class="TableContent">
+Oberfläche			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+Oberfläche			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Requirement.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Requirement.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <span style="line-height: 18px">Requirement</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+1			</td>
+			<td>
+			</td>
+			<td>
+				<div style="background: #ffff00; line-height: 12px; margin: 3px;">
+&nbsp;				</div>
+			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td class="TableContent">
+Persistierung			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+Persistierung			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Requirement.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Requirement.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <span style="line-height: 18px">Requirement</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+1			</td>
+			<td>
+			</td>
+			<td>
+				<div style="background: #ffff00; line-height: 12px; margin: 3px;">
+&nbsp;				</div>
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td class="TableContent">
+Eingaben durch entsprechende textuelle Dialoge			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+Eingaben durch entsprechende textuelle Dialoge			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Requirement.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Requirement.png'); background-repeat: no-repeat;">
+					</div>
+					&nbsp; <span style="line-height: 18px">Requirement</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+			</td>
+			<td>
+			</td>
+			<td class="TableContent">
+1			</td>
+			<td>
+			</td>
+			<td>
+				<div style="background: #ffff00; line-height: 12px; margin: 3px;">
+&nbsp;				</div>
+			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="TableCellSpaceHolder1PxTall">
+			</td>
+		</tr>
+		<tr>
+			<td class="TableFooter">
+			</td>
+		</tr>
+	</table>
+	<p>
+	</p>
+	<div style="height: 20px">
+	</div>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="FooterLine">
+			</td>
+		</tr>
+	</table>
+	<div class="HeaderText">
+		Blatt3	</div>
+</body>
+</html>
