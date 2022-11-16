@@ -26,10 +26,17 @@ Bisher wurde diese Projektverwaltung durch Stift und Papier von den Mitarbeitern
 Nun soll ein Softwareprodukt entwickelt werden, welches Ihnen -- den Projektverwalter -- bei der Verwaltung der studentischen Projekten hilft.
 
 ## Funktionale Anforderungen
-Software: 
+
+> Folgende Funktionalitäten sind bereitzustellen:
+
+### Software: 
 
 
-Organisatorische Anforderungen:
-1. Enzelplatzanwendung
+### Hardware:
+1. Individuelle PC Nutzung Notwendig
+
+
+### Organisatorische Anforderungen:
+1. Einzelplatzanwendung
 2. Programmierung als Java-Applikation
 3. 
