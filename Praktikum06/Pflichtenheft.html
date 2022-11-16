@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Pflichtenheft.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="pflichtenheft">Pflichtenheft</h1>
+<h2 id="einleitung">Einleitung</h2>
+<p>Jedes Semester müssen Sie Projekte verwalten, die von 2-3 Studenten bearbeitet werden sollen. Um die Themen der Projekte kümmern sich die Studenten selbst, d.h. sie schlagen Ihnen das Thema vor und Sie müssen entscheiden, ob das Thema den Ansprüchen genügt und zugelassen wird, ob noch Ergänzungen zu berücksichtigen sind oder das Thema abgelehnt werden muss.</p>
+<p>Hierzu wird eine Software entwickelt, um Ihnen die Verwaltung der Projekte leichter zu gestalten.</p>
+<h1 id="ausangssituation">Ausangssituation</h1>
+<p>Bisher wurde diese Projektverwaltung durch Stift und Papier von den Mitarbeitern der FH selbst umgesetzt. Es gab keine zentrale Verwaltung.</p>
+<p>Nun soll ein Softwareprodukt entwickelt werden, welches Ihnen -- den Projektverwalter -- bei der Verwaltung der studentischen Projekten hilft.</p>
+<h2 id="pflichtziel">Pflichtziel</h2>
+<ul>
+<li>Softwareprodukt, das
+<ul>
+<li>die Mitarbeiter der FH bei der Verwaltung von Projektanträgen innerhalb ihrer Lehrveranstaltung unterstützt</li>
+<li>Studenten sollen Projektanträge digital einreichen können</li>
+<li>Projektanträge müssen persistiert werden</li>
+</ul>
+</li>
+</ul>
+<h2 id="wunschziel">Wunschziel</h2>
+<ul>
+<li>Um keine extra Nutzerdatenbank zu warten =&gt; Login mit FH-Daten</li>
+</ul>
+<h2 id="abgrenzung">Abgrenzung</h2>
+<ul>
+<li>Noten für die fertigen Projekte und Vorstellungen sind nicht zu verwalten</li>
+</ul>
+<h1 id="dekomposition">Dekomposition</h1>
+<h2 id="use-case-diagramm">Use Case Diagramm</h2>
+<p><img src="./Images/Use Case Diagram Blatt5.png" alt="^1"></p>
+<h2 id="kontext-des-softwareproduktes">Kontext des Softwareproduktes</h2>
+<ol>
+<li>Die Anwendung soll für Mitarbeiter als auch Studenten leicht nutzbar sein, daher brauchen wir eine GUI</li>
+<li>Die Daten müssen über längere Zeiträume gespeichert sein, daher brauchen wir eine Art der Persistierung, z.B. eine Datenbank oder Flatfile</li>
+<li>Die Anwendung soll direkt auf dem Computer laufen; nicht im Webbrowser. Eine Java-Anwendung ist wünschenswert.</li>
+</ol>
+<h2 id="architektur">Architektur</h2>
+<p><img src="./Images/Arch.png" alt="^2"></p>
+<h2 id="zusammenwirken-mit-anderen-produkten">Zusammenwirken mit anderen Produkten</h2>
+<ol>
+<li>Die einfache Verwaltung der Projektanträge macht es wesentlich leichter die Noten für die einzelnen Studenten am Semesterende in die Software der FH einzutragen.</li>
+</ol>
+<h2 id="beschreibung-der-zu-nutzenden-schnittstellen">Beschreibung der zu nutzenden Schnittstellen</h2>
+<ol>
+<li>Das Filesystem soll genutzt werden um Daten zu persistieren</li>
+</ol>
+<h2 id="pr%C3%A4zisierung-der-unterst%C3%BCtzung-in-den-projektphasen">Präzisierung der Unterstützung in den Projektphasen</h2>
+<ol>
+<li>In der Projektphase der Implementation muss eine IDE verwendet werden</li>
+<li>In der Produktion muss eine Java-Runtime vorhanden sein</li>
+<li>In der Produktion muss eine Datenpersistierung vorhanden sein, z.B. über Flatfile, Sqlite, MySql etc.</li>
+</ol>
+<h1 id="funktionale-anforderungen">Funktionale Anforderungen</h1>
+<h2 id="ablaufdiagramm">Ablaufdiagramm</h2>
+<p><img src="./Images/BNPM Diagram.jpg" alt="^3"></p>
+<h2 id="folgende-funktionalit%C3%A4ten-sind-bereitzustellen">Folgende Funktionalitäten sind bereitzustellen:</h2>
+<h3 id="software">Software:</h3>
+<ol>
+<li>Projektanträge von 2-3 Studenten pro Projektgruppe</li>
+<li>Projektantrag enthält Kurzbeschreibung</li>
+<li>Projektantrag enthält Titel</li>
+<li>Projektantrag enthält Ausführliche Beschreibung (1-2 DIN A4 Seiten)</li>
+<li>Projektantrag enthält Namen der Lehrveranstaltung</li>
+<li>Projektantrag enthält Kondaktdaten für Ansprechpartner in Unternehmen</li>
+<li>Projektantrag kann von Studenten eingereicht werden</li>
+<li>Projektantrag kann von Studenten überarbeitet werden</li>
+<li>Projektantrag wird für Studenten Read-Only, sobald er eingereicht wird.</li>
+<li>Projektantrag kann von Mitarbeiter zugelassen werden</li>
+<li>Projektantrag kann von Mitarbeiter abgelehnt werden</li>
+<li>Projektantrag kann von Mitarbeiter zur Überarbeitung kommentiert und an den Studenten zurückgegeben werden (siehe Software Requirement #7). Hier wird der Projektantrag wieder als Schreibbar für den Studenten markiert.</li>
+<li>Nach der Zulassung können Studenten zwei Termine zur Vorstellung vorschlagen</li>
+<li>Vorschläge für Termin können von Mitarbeiter abgelehnt werden</li>
+<li>Bei Ablehnung eines Termins muss der Student neue Termine vorschlagen können</li>
+<li>Vorschläge für Termin können von Mitarbeiter angenommen werden</li>
+<li>Der Zugang wird durch Username + Password geschützt</li>
+</ol>
+<h3 id="hardware">Hardware:</h3>
+<ol>
+<li>Individuelle PC-Nutzung notwendig</li>
+<li>Realisierung auf deinem Desktop-PC</li>
+<li>Zugriff aufs File-System für Persistierung</li>
+</ol>
+<h3 id="organisatorische-anforderungen">Organisatorische Anforderungen:</h3>
+<ol>
+<li>Einzelplatzanwendung</li>
+<li>Programmierung als Java-Applikation</li>
+<li>Ein Internetzugang ist nicht notwendig (lokale Anwendung)</li>
+<li>Rechteverwaltung: Mitarbeiter können alle Anträge sehen; Studenten jedoch nur ihren eigenen Antrag</li>
+<li>Studenten sind Nutzer</li>
+<li>Mitarbeiter der FH sind Admins</li>
+<li>Daten sollen persistiert werden</li>
+<li>Eine graphische Oberfläche soll angeboten werden</li>
+</ol>
+<h2 id="szenarien">Szenarien</h2>
+<table>
+<thead>
+<tr>
+<th>Nr 1</th>
+<th>Name: Studenten reichen einen Projektantrag ein</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kontext</td>
+<td>Studenten können Projektanträge mit Kurzbeschreibung, detaillierter Beschreibung usw einreichen</td>
+</tr>
+<tr>
+<td>Auslöser</td>
+<td>Student möchte Projektantrag einreichen</td>
+</tr>
+<tr>
+<td>Ebene</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Hauptakteur</td>
+<td>Anwender: Student (Endbenutzer)</td>
+</tr>
+<tr>
+<td>Beteiligte und deren Ziel/Interessen</td>
+<td>Beteiligter</td>
+</tr>
+<tr>
+<td>Student</td>
+<td>Möchte einen Projektantrag für das jeweilige Modul in seinem Studium einreichen</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Vorbedingungen</td>
+<td>Muss eingeschrieben sein</td>
+</tr>
+<tr>
+<td>Mindestgarantie</td>
+<td>Speicherung des Projektantrages in der Datenbank</td>
+</tr>
+<tr>
+<td>Erfolgsgarantie</td>
+<td>Projektantrag wird an den Mitarbeiter zur Bewertung geleitet</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Erfolgsszenario</td>
+<td>Schritt</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Prüfung ob alle für den Antrag benötigte Daten eingetragen wurden</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Daten werden gespeichert und an den Mitarbeiter zur Bewertung geleigtet</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Misserfolgsszenario</td>
+<td>Schritt</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Projektantrag hat zusätzliche Informationen, die nicht in den vorgegebenen Feldern eingegeben werden können</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Erweiterungen, Alternativen</td>
+<td>Schritt</td>
+</tr>
+<tr>
+<td>1a</td>
+<td>Ein Feld für Speicherung von Anhängen</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table>
+<thead>
+<tr>
+<th>Nr 2</th>
+<th>Name: Überarbeiten von Projektanträgen</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kontext</td>
+<td>Studenten müssen Projektanträge bearbeiten, wenn diese von Mitarbeitern der FH bemängelt wurden</td>
+</tr>
+<tr>
+<td>Auslöser</td>
+<td>Mitarbeiter der Fachhochschule möchte eine Ausbesserung des Projektantrages</td>
+</tr>
+<tr>
+<td>Ebene</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Hauptakteur</td>
+<td>Student</td>
+</tr>
+<tr>
+<td>Beteiligte und deren Ziel/Interessen</td>
+<td>Beteiligter</td>
+</tr>
+<tr>
+<td>Student</td>
+<td>Möchte den Projektantrag überarbeiten</td>
+</tr>
+<tr>
+<td>Mitarbeiter</td>
+<td>Kann die jeweiligen Projektanträge in Revision geben</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Vorbedingungen</td>
+<td>Ein Projektantrag muss bereits eingereicht worden sein, und vom Mitarbeiter als Verbesserungswürdig eingestuft worden sein.</td>
+</tr>
+<tr>
+<td>Mindestgarantie</td>
+<td>Speichern des aktuellen Projektantrages sowie neuer Einreichung des Antrages beim Mitarbeiter</td>
+</tr>
+<tr>
+<td>Erfolgsgarantie</td>
+<td>Der aktualisierte Projektantrag wird neu eingereicht</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Erfolgsszenario</td>
+<td>Schritt</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Prüfung ob der aktualisierte Antrag korrekt eingegeben wurde</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Aktualisierung des Antrages für den Mitarbeiter, der diese in einer Warteschlange nun erneut abarbeiten kann</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Misserfolgsszenario</td>
+<td>Schritt</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Projektantrag hat zusätzliche Informationen, die nicht in den vorgegebenen Feldern eingegeben werden können</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Erweiterungen, Alternativen</td>
+<td>Schritt</td>
+</tr>
+<tr>
+<td>1a</td>
+<td>Ein Feld für Speicherung von Anhängen</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table>
+<thead>
+<tr>
+<th>Nr 3</th>
+<th>Name: Vorstellungstermine einreichen</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kontext</td>
+<td>Nachdem ein Projekt erfolgreich zugelassen wurde, kann ein Student Vorstellungstermine einreichen</td>
+</tr>
+<tr>
+<td>Auslöser</td>
+<td>Zugelassener Projektantrag</td>
+</tr>
+<tr>
+<td>Ebene</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Hauptakteur</td>
+<td>Student</td>
+</tr>
+<tr>
+<td>Beteiligte und deren Ziel/Interessen</td>
+<td>Beteiligter</td>
+</tr>
+<tr>
+<td>Student</td>
+<td>Möchte Vorstellungstermine einreichen</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Vorbedingungen</td>
+<td>Der Projektantrag muss vom Mitarbeiter zugelassen worden sein</td>
+</tr>
+<tr>
+<td>Mindestgarantie</td>
+<td>Speicherung von Vorstellungsterminen</td>
+</tr>
+<tr>
+<td>Erfolgsgarantie</td>
+<td>Vorstellungstermine wurden erfolgreich gespeichert und werden dem Mitarbeiter gezeigt</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Erfolgsszenario</td>
+<td>Schritt</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Prüfung ob Daten in der Zukunft liegen</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Misserfolgsszenario</td>
+<td>Schritt</td>
+</tr>
+<tr>
+<td>1a</td>
+<td>Invalide Daten</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Erweiterungen, Alternativen</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table>
+<thead>
+<tr>
+<th>Nr 4</th>
+<th>Name: Betreuer verwaltet Projektanträge</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kontext</td>
+<td>Ein Betreuer verwaltet Projektanträge; dies bedeutet er kann sie ablehnen, zulassen, oder zur Überarbeitung zurückgeben.</td>
+</tr>
+<tr>
+<td>Auslöser</td>
+<td>Projektantrag wird von Studenten submitted</td>
+</tr>
+<tr>
+<td>Ebene</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Hauptakteur</td>
+<td>Betreuer</td>
+</tr>
+<tr>
+<td>Beteiligte und deren Ziel/Interessen</td>
+<td>Beteiligter</td>
+</tr>
+<tr>
+<td>Betreuer</td>
+<td>Möchte dass das Projekt zugelassen, abgelehnt oder zur Überarbeitung zurückgegeben wird. Hier wird ein Kommentar mit den auszuführenden Ausbesserungen hinterlassen</td>
+</tr>
+<tr>
+<td>Student</td>
+<td>Falls das Projekt zur Überarbeitung zurückgegeben wird muss ein Student es überarbeiten</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Vorbedingungen</td>
+<td>Projektantrag muss eingegangen sein</td>
+</tr>
+<tr>
+<td>Mindestgarantie</td>
+<td>Projekt wird zugelassen/abgelehnt/zur Überarbeitung+Kommentar zurückgegeben</td>
+</tr>
+<tr>
+<td>Erfolgsgarantie</td>
+<td>Projektantrag wird bewertet</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Erfolgsszenario</td>
+<td>Schritt</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Betreuer gibt einen Kommentar mit allen auszuführenden Verbesserungen ab</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Aktualisierung des Projektantrages</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Misserfolgsszenario</td>
+<td>Schritt</td>
+</tr>
+<tr>
+<td>1a</td>
+<td>Kommentar fehlt</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Erweiterungen, Alternativen</td>
+<td>Kommentar muss unbedingt hinterlassen werden</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<table>
+<thead>
+<tr>
+<th>Nr 5</th>
+<th>Name: Vorstellungsterminen zustimmen</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kontext</td>
+<td>Nach der Zulassung von Projekten können Studenten Vorstellungstermine terminieren. Hier kann der Betreuer  Terminen jeweils zustimmen</td>
+</tr>
+<tr>
+<td>Auslöser</td>
+<td>Student reicht Vorstellungstermine ein</td>
+</tr>
+<tr>
+<td>Ebene</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Hauptakteur</td>
+<td>Betreuer</td>
+</tr>
+<tr>
+<td>Beteiligte und deren Ziel/Interessen</td>
+<td>Beteiligter</td>
+</tr>
+<tr>
+<td>Betreuer</td>
+<td>Möchte einen Termin zur Benotung des Projektes finden</td>
+</tr>
+<tr>
+<td>Student</td>
+<td>Möchte das Projekt vorstellen</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Vorbedingungen</td>
+<td>Vorstellungsdaten von Studenten müssen vorliegen</td>
+</tr>
+<tr>
+<td>Mindestgarantie</td>
+<td>Es wird ein Termin zu/abgesagt</td>
+</tr>
+<tr>
+<td>Erfolgsgarantie</td>
+<td>Es wird ein Termin zu/abgesagt</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Erfolgsszenario</td>
+<td>Schritt</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Y/N zu Terminen</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Misserfolgsszenario</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Erweiterungen, Alternativen</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h1 id="skizze-des-lebenszyklus-und-gesamtarchitektur">Skizze des Lebenszyklus und Gesamtarchitektur</h1>
+<p>Im Rahmen dieser Projektabgabe verzichten wir auf Prototypen und verzichten auf das Iterieren mit Nutzerfeedback.</p>
+<h2 id="meilensteine">Meilensteine</h2>
+<ol>
+<li>Grobanforderungen ✅</li>
+<li>Detailstudie ✅</li>
+<li>Implementierung</li>
+<li>Abnahme</li>
+</ol>
+<h1 id="sicherheitsanforderungen">Sicherheitsanforderungen</h1>
+<p>Das Softwareprodukt enthält persönliche Daten und Informationen zu den Projektanträgen anderer Nutzer, daher müssen wir den Zugriff durch die Nutzerparteien (Studenten und Mitarbeiter) verschieden regulieren. Studenten dürfen nur ihren eigenen Antrag sehen. Der Zugrang wird durch Nutzername + Password geschützt.</p>
+<h1 id="lieferumfang">Lieferumfang</h1>
+<p>Das Softwareprodukt wird in Form einer einzelnen Executable (ausführebare Datei) ausgeliefert. Es gibt keinerlei Lizenzen; das Produkt ist auf jedem Computer frei ausführbar.</p>
+<h1 id="abnahmekriterien">Abnahmekriterien</h1>
+<h2 id="folgende-tests-m%C3%BCssen-alle-bestanden-werden">Folgende Tests müssen alle bestanden werden:</h2>
+<ol>
+<li>Überprüfen ob die Daten bei Programmstart geladen werden und bei Aktionen (Beantragung/Administrierung) gespeichert werden.</li>
+<li>Studenten können nur auf eigene Projektanträge zugreifen</li>
+<li>Studenten können Projektanträge einreichen</li>
+<li>Mitarbeiter können Projektanträge ansehen und administrieren (zulassen, ablehnen, zur Überarbeitung zurückgeben)</li>
+<li>Alle Aktionen müssen über eine graphische Oberfläche verüfgbarsein.</li>
+</ol>
+<h1 id="abk%C3%BCrzungsverzeichnis">Abkürzungsverzeichnis</h1>
+<ul>
+<li>FH =&gt; Fachhochschule</li>
+<li>Persistierung =&gt; den Zustand der Daten speichern</li>
+</ul>
+<h1 id="literaturverzeichnis">Literaturverzeichnis</h1>
+<ul>
+<li>Es wurden keine Drittparteidokumente verwendet</li>
+</ul>
+<h1 id="abbildungsverzeichnis">Abbildungsverzeichnis</h1>
+<p>[^1]: Use Case Diagram Blatt5.png - Ein Diagramm, welches alle Use-Cases der Software aufzeigt.</p>
+<p>[^2]: Arch.png - Zeigt die Architektur unserer Software mitsamt aller Systeme und Abhängigkeiten</p>
+<p>[^3]: BNPM Diagram.jpg - Zeigt den Ablauf eines Workflows</p>
+
+</body>
+</html>
