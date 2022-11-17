@@ -14,18 +14,21 @@ Nun soll ein Softwareprodukt entwickelt werden, welches Ihnen -- den Projektverw
 
 ## Pflichtziel
 
--   Softwareprodukt, das
-    -   die Mitarbeiter der FH bei der Verwaltung von Projektanträgen innerhalb ihrer Lehrveranstaltung unterstützt
-    -   Studenten sollen Projektanträge digital einreichen können
-    -   Projektanträge müssen persistiert werden
+- Softwareprodukt, das
+  - die Mitarbeiter der FH bei der Verwaltung von Projektanträgen innerhalb ihrer Lehrveranstaltung unterstützt
+  - Studenten sollen Projektanträge digital einreichen können
+  - Projektanträge müssen persistiert werden
 
 ## Wunschziel
 
--   Um keine extra Nutzerdatenbank zu warten => Login mit FH-Daten
+- Um keine extra Nutzerdatenbank zu warten => Login mit FH-Daten
 
 ## Abgrenzung
 
--   Noten für die fertigen Projekte und Vorstellungen sind nicht zu verwalten
+- Keine Kommunikation über Email
+- Kein Login
+- Keine Onlinedatenbank
+- Noten für die fertigen Projekte und Vorstellungen sind nicht zu verwalten
 
 # Dekomposition
 
@@ -45,13 +48,14 @@ Nun soll ein Softwareprodukt entwickelt werden, welches Ihnen -- den Projektverw
 
 ## Zusammenwirken mit anderen Produkten
 
-1.  Die einfache Verwaltung der Projektanträge macht es wesentlich leichter die Noten für die einzelnen Studenten am Semesterende in die Software der FH einzutragen. 
+1.  Die einfache Verwaltung der Projektanträge macht es wesentlich leichter die Noten für die einzelnen Studenten am Semesterende in die Software der FH einzutragen.
 
 ## Beschreibung der zu nutzenden Schnittstellen
 
 1.  Das Filesystem soll genutzt werden um Daten zu persistieren
 
 ## Präzisierung der Unterstützung in den Projektphasen
+
 1. In der Projektphase der Implementation muss eine IDE verwendet werden
 2. In der Produktion muss eine Java-Runtime vorhanden sein
 3. In der Produktion muss eine Datenpersistierung vorhanden sein, z.B. über Flatfile, Sqlite, MySql etc.
@@ -66,40 +70,67 @@ Nun soll ein Softwareprodukt entwickelt werden, welches Ihnen -- den Projektverw
 
 ### Software:
 
-1.  Projektanträge von 2-3 Studenten pro Projektgruppe
-2.  Projektantrag enthält Kurzbeschreibung
-3.  Projektantrag enthält Titel
-4.  Projektantrag enthält Ausführliche Beschreibung (1-2 DIN A4 Seiten)
-5.  Projektantrag enthält Namen der Lehrveranstaltung
-6.  Projektantrag enthält Kondaktdaten für Ansprechpartner in Unternehmen
-7.  Projektantrag kann von Studenten eingereicht werden
-8.  Projektantrag kann von Studenten überarbeitet werden
-9.  Projektantrag wird für Studenten Read-Only, sobald er eingereicht wird.
-10. Projektantrag kann von Mitarbeiter zugelassen werden
-11. Projektantrag kann von Mitarbeiter abgelehnt werden
-12. Projektantrag kann von Mitarbeiter zur Überarbeitung kommentiert und an den Studenten zurückgegeben werden (siehe Software Requirement #7). Hier wird der Projektantrag wieder als Schreibbar für den Studenten markiert.
-13. Nach der Zulassung können Studenten zwei Termine zur Vorstellung vorschlagen
-14. Vorschläge für Termin können von Mitarbeiter abgelehnt werden
-15. Bei Ablehnung eines Termins muss der Student neue Termine vorschlagen können
-16. Vorschläge für Termin können von Mitarbeiter angenommen werden
-17. Der Zugang wird durch Username + Password geschützt
+[S1](^S1). Projektanträge von 2-3 Studenten pro Projektgruppe
+
+S2. Projektantrag enthält Kurzbeschreibung
+
+S3. Projektantrag enthält Titel
+
+S4. Projektantrag enthält Ausführliche Beschreibung (1-2 DIN A4 Seiten)
+
+S5. Projektantrag enthält Namen der Lehrveranstaltung
+
+S6. Projektantrag enthält Kondaktdaten für Ansprechpartner in Unternehmen
+
+S7. Projektantrag kann von Studenten eingereicht werden
+
+S8. Projektantrag kann von Studenten überarbeitet werden
+
+S9. Projektantrag wird für Studenten Read-Only, sobald er eingereicht wird.
+
+S10. Projektantrag kann von Mitarbeiter zugelassen werden
+
+S11. Projektantrag kann von Mitarbeiter abgelehnt werden
+
+S12. Projektantrag kann von Mitarbeiter zur Überarbeitung kommentiert und an den Studenten zurückgegeben werden (siehe Software Requirement #7). Hier wird der Projektantrag wieder als Schreibbar für den Studenten markiert.
+
+S13. Nach der Zulassung können Studenten zwei Termine zur Vorstellung vorschlagen
+
+S14. Vorschläge für Termin können von Mitarbeiter abgelehnt werden
+
+S15. Bei Ablehnung eines Termins muss der Student neue Termine vorschlagen können
+
+S16. Vorschläge für Termin können von Mitarbeiter angenommen werden
+
+S17. Der Zugang wird durch Username + Password geschützt
+
+S18: Studenten können nur auf eigene Projektanträge zugreifen
 
 ### Hardware:
 
-1.  Individuelle PC-Nutzung notwendig
-2.  Realisierung auf deinem Desktop-PC
-3.  Zugriff aufs File-System für Persistierung
+H1. Individuelle PC-Nutzung notwendig
+
+H2. Realisierung auf deinem Desktop-PC
+
+H3. Zugriff aufs File-System für Persistierung
 
 ### Organisatorische Anforderungen:
 
-1.  Einzelplatzanwendung
-2.  Programmierung als Java-Applikation
-3.  Ein Internetzugang ist nicht notwendig (lokale Anwendung)
-4.  Rechteverwaltung: Mitarbeiter können alle Anträge sehen; Studenten jedoch nur ihren eigenen Antrag
-5.  Studenten sind Nutzer
-6.  Mitarbeiter der FH sind Admins
-7.  Daten sollen persistiert werden
-8.  Eine graphische Oberfläche soll angeboten werden
+O1. Einzelplatzanwendung
+
+O2. Programmierung als Java-Applikation
+
+O3. Ein Internetzugang ist nicht notwendig (lokale Anwendung)
+
+O4. Rechteverwaltung: Mitarbeiter können alle Anträge sehen; Studenten jedoch nur ihren eigenen Antrag
+
+O5. Studenten sind Nutzer
+
+O6. Mitarbeiter der FH sind Admins
+
+O7. Daten sollen persistiert werden
+
+O8. Eine graphische Oberfläche soll angeboten werden
 
 ## Szenarien
 
@@ -115,7 +146,7 @@ Nun soll ein Softwareprodukt entwickelt werden, welches Ihnen -- den Projektverw
 | Vorbedingungen                       | Muss eingeschrieben sein                                                                                    |
 | Mindestgarantie                      | Speicherung des Projektantrages in der Datenbank                                                            |
 | Erfolgsgarantie                      | Projektantrag wird an den Mitarbeiter zur Bewertung geleitet                                                |
-| | |
+|                                      |                                                                                                             |
 | Erfolgsszenario                      | Schritt                                                                                                     |
 | 1                                    | Prüfung ob alle für den Antrag benötigte Daten eingetragen wurden                                           |
 | 2                                    | Daten werden gespeichert und an den Mitarbeiter zur Bewertung geleigtet                                     |
@@ -126,7 +157,7 @@ Nun soll ein Softwareprodukt entwickelt werden, welches Ihnen -- den Projektverw
 | Erweiterungen, Alternativen          | Schritt                                                                                                     |
 | 1a                                   | Ein Feld für Speicherung von Anhängen                                                                       |
 
-* * *
+---
 
 | Nr 2                                 | Name: Überarbeiten von Projektanträgen                                                                                      |
 | ------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- |
@@ -141,7 +172,7 @@ Nun soll ein Softwareprodukt entwickelt werden, welches Ihnen -- den Projektverw
 | Vorbedingungen                       | Ein Projektantrag muss bereits eingereicht worden sein, und vom Mitarbeiter als Verbesserungswürdig eingestuft worden sein. |
 | Mindestgarantie                      | Speichern des aktuellen Projektantrages sowie neuer Einreichung des Antrages beim Mitarbeiter                               |
 | Erfolgsgarantie                      | Der aktualisierte Projektantrag wird neu eingereicht                                                                        |
-| | |
+|                                      |                                                                                                                             |
 | Erfolgsszenario                      | Schritt                                                                                                                     |
 | 1                                    | Prüfung ob der aktualisierte Antrag korrekt eingegeben wurde                                                                |
 | 2                                    | Aktualisierung des Antrages für den Mitarbeiter, der diese in einer Warteschlange nun erneut abarbeiten kann                |
@@ -152,8 +183,7 @@ Nun soll ein Softwareprodukt entwickelt werden, welches Ihnen -- den Projektverw
 | Erweiterungen, Alternativen          | Schritt                                                                                                                     |
 | 1a                                   | Ein Feld für Speicherung von Anhängen                                                                                       |
 
-* * *
-
+---
 
 | Nr 3                                 | Name: Vorstellungstermine einreichen                                                              |
 | ------------------------------------ | ------------------------------------------------------------------------------------------------- |
@@ -167,7 +197,7 @@ Nun soll ein Softwareprodukt entwickelt werden, welches Ihnen -- den Projektverw
 | Vorbedingungen                       | Der Projektantrag muss vom Mitarbeiter zugelassen worden sein                                     |
 | Mindestgarantie                      | Speicherung von Vorstellungsterminen                                                              |
 | Erfolgsgarantie                      | Vorstellungstermine wurden erfolgreich gespeichert und werden dem Mitarbeiter gezeigt             |
-| | |
+|                                      |                                                                                                   |
 | Erfolgsszenario                      | Schritt                                                                                           |
 | 1                                    | Prüfung ob Daten in der Zukunft liegen                                                            |
 |                                      |                                                                                                   |
@@ -176,10 +206,10 @@ Nun soll ein Softwareprodukt entwickelt werden, welches Ihnen -- den Projektverw
 |                                      |                                                                                                   |
 | Erweiterungen, Alternativen          | -                                                                                                 |
 
-* * *
+---
 
 | Nr 4                                 | Name: Betreuer verwaltet Projektanträge                                                                                                                             |
-| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- |
 | Kontext                              | Ein Betreuer verwaltet Projektanträge; dies bedeutet er kann sie ablehnen, zulassen, oder zur Überarbeitung zurückgeben.                                            |
 | Auslöser                             | Projektantrag wird von Studenten submitted                                                                                                                          |
 | Ebene                                | 1                                                                                                                                                                   |
@@ -190,8 +220,8 @@ Nun soll ein Softwareprodukt entwickelt werden, welches Ihnen -- den Projektverw
 |                                      |                                                                                                                                                                     |
 | Vorbedingungen                       | Projektantrag muss eingegangen sein                                                                                                                                 |
 | Mindestgarantie                      | Projekt wird zugelassen/abgelehnt/zur Überarbeitung+Kommentar zurückgegeben                                                                                         |
-| Erfolgsgarantie                      | Projektantrag wird bewertet  
-| | |                                                                                                                                       |
+| Erfolgsgarantie                      | Projektantrag wird bewertet                                                                                                                                         |
+|                                      |                                                                                                                                                                     |     |
 | Erfolgsszenario                      | Schritt                                                                                                                                                             |
 | 1                                    | Betreuer gibt einen Kommentar mit allen auszuführenden Verbesserungen ab                                                                                            |
 | 2                                    | Aktualisierung des Projektantrages                                                                                                                                  |
@@ -201,27 +231,27 @@ Nun soll ein Softwareprodukt entwickelt werden, welches Ihnen -- den Projektverw
 |                                      |                                                                                                                                                                     |
 | Erweiterungen, Alternativen          | Kommentar muss unbedingt hinterlassen werden                                                                                                                        |
 
-* * *
+---
 
-| Nr 5                                 | Name: Vorstellungsterminen zustimmen                                                                                                  |
-| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------- |
-| Kontext                              | Nach der Zulassung von Projekten können Studenten Vorstellungstermine terminieren. Hier kann der Betreuer  Terminen jeweils zustimmen |
-| Auslöser                             | Student reicht Vorstellungstermine ein                                                                                                |
-| Ebene                                | 2                                                                                                                                     |
-| Hauptakteur                          | Betreuer                                                                                                                              |
-| Beteiligte und deren Ziel/Interessen | Beteiligter                                                                                                                           |
-| Betreuer                             | Möchte einen Termin zur Benotung des Projektes finden                                                                                 |
-| Student                              | Möchte das Projekt vorstellen                                                                                                         |
-|                                      |                                                                                                                                       |
-| Vorbedingungen                       | Vorstellungsdaten von Studenten müssen vorliegen                                                                                      |
-| Mindestgarantie                      | Es wird ein Termin zu/abgesagt                                                                                                        |
-| Erfolgsgarantie                      | Es wird ein Termin zu/abgesagt                                                                                                        |
-| | |
-| Erfolgsszenario                      | Schritt                                                                                                                               |
-| 1                                    | Y/N zu Terminen                                                                                                                       |
-|                                      |                                                                                                                                       |
-| Misserfolgsszenario                  | -                                                                                                                                     |
-| Erweiterungen, Alternativen          | -                                                                                                                                     |
+| Nr 5                                 | Name: Vorstellungsterminen zustimmen                                                                                                 |
+| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------ |
+| Kontext                              | Nach der Zulassung von Projekten können Studenten Vorstellungstermine terminieren. Hier kann der Betreuer Terminen jeweils zustimmen |
+| Auslöser                             | Student reicht Vorstellungstermine ein                                                                                               |
+| Ebene                                | 2                                                                                                                                    |
+| Hauptakteur                          | Betreuer                                                                                                                             |
+| Beteiligte und deren Ziel/Interessen | Beteiligter                                                                                                                          |
+| Betreuer                             | Möchte einen Termin zur Benotung des Projektes finden                                                                                |
+| Student                              | Möchte das Projekt vorstellen                                                                                                        |
+|                                      |                                                                                                                                      |
+| Vorbedingungen                       | Vorstellungsdaten von Studenten müssen vorliegen                                                                                     |
+| Mindestgarantie                      | Es wird ein Termin zu/abgesagt                                                                                                       |
+| Erfolgsgarantie                      | Es wird ein Termin zu/abgesagt                                                                                                       |
+|                                      |                                                                                                                                      |
+| Erfolgsszenario                      | Schritt                                                                                                                              |
+| 1                                    | Y/N zu Terminen                                                                                                                      |
+|                                      |                                                                                                                                      |
+| Misserfolgsszenario                  | -                                                                                                                                    |
+| Erweiterungen, Alternativen          | -                                                                                                                                    |
 
 # Skizze des Lebenszyklus und Gesamtarchitektur
 
@@ -236,7 +266,7 @@ Im Rahmen dieser Projektabgabe verzichten wir auf Prototypen und verzichten auf 
 
 # Sicherheitsanforderungen
 
-Das Softwareprodukt enthält persönliche Daten und Informationen zu den Projektanträgen anderer Nutzer, daher müssen wir den Zugriff durch die Nutzerparteien (Studenten und Mitarbeiter) verschieden regulieren. Studenten dürfen nur ihren eigenen Antrag sehen. Der Zugrang wird durch Nutzername + Password geschützt.
+Das Softwareprodukt enthält persönliche Daten und Informationen zu den Projektanträgen anderer Nutzer, daher müssen wir den Zugriff durch die Nutzerparteien (Studenten und Mitarbeiter) verschieden regulieren. Studenten dürfen nur ihren eigenen Antrag sehen. Der Zugang wird durch Nutzername + Password geschützt.
 
 # Lieferumfang
 
@@ -246,25 +276,36 @@ Das Softwareprodukt wird in Form einer einzelnen Executable (ausführebare Datei
 
 ## Folgende Tests müssen alle bestanden werden:
 
-1.  Überprüfen ob die Daten bei Programmstart geladen werden und bei Aktionen (Beantragung/Administrierung) gespeichert werden.
-2.  Studenten können nur auf eigene Projektanträge zugreifen
-3.  Studenten können Projektanträge einreichen
-4.  Mitarbeiter können Projektanträge ansehen und administrieren (zulassen, ablehnen, zur Überarbeitung zurückgeben)
-5.  Alle Aktionen müssen über eine graphische Oberfläche verüfgbarsein.
+T1. Wenn ein Projektantrag eingereicht wird, müssen Titel, Kurzbeschreibung, ausführliche Beschreibung (1-2 DIN A4 Seiten) und Matrikelnummern der Studenten angegeben werden. *Siehe S02 bis S04*.
+
+T2. Eine Gruppe für einen Projektantrag dürfen minimal 2 und maximal 3 Studenten haben. *Siehe S01*.
+
+T3. Der Betreuer muss einen Kommentar hinterlassen, wenn ein Projektantrag zur Überarbeitung zurückgegeben wird. *Siehe S12*.
+
+T4. Mitarbeiter können Projektanträge ansehen und administrieren (zulassen, ablehnen, zur Überarbeitung zurückgeben). Siehe S10 bis S11, T3.
+
+T5. Wenn ein Projektantrag zur Überarbeitung zurückgegeben wird, muss ein Student das Projekt überarbeiten. *Siehe S12*.
+
+T6. Studenten können nur auf eigene Projektanträge zugreifen. *Siehe S17*.
+
+T7. Wenn ein das Projekt zugelassen wird, muss ein Student zwei Vorstellungstermine einreichen. *Siehe S13*.
+
+T8. Der Mitarbeiter muss die jeweiligen Vorstellungstermine bestätigen oder ablehnen. *Siehe S14, S16*.
+
+T9. Bei Ablehnung eines Vorstellungstermins muss vom Stundenten ein neuer Termin eingereicht werden. *Siehe 13*.
+
 
 # Abkürzungsverzeichnis
 
--   FH => Fachhochschule
--   Persistierung => den Zustand der Daten speichern
+- FH => Fachhochschule
+- Persistierung => den Zustand der Daten speichern
 
 # Literaturverzeichnis
 
--   Es wurden keine Drittparteidokumente verwendet
+- Es wurden keine Drittparteidokumente verwendet
 
 # Abbildungsverzeichnis
 
 [^1]: Use Case Diagram Blatt5.png - Ein Diagramm, welches alle Use-Cases der Software aufzeigt.
-
 [^2]: Arch.png - Zeigt die Architektur unserer Software mitsamt aller Systeme und Abhängigkeiten
-
 [^3]: BNPM Diagram.jpg - Zeigt den Ablauf eines Workflows

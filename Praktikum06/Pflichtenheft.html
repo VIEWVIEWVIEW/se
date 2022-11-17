@@ -388,6 +388,9 @@ code {
 </ul>
 <h2 id="abgrenzung">Abgrenzung</h2>
 <ul>
+<li>Keine Kommunikation über Email</li>
+<li>Kein Login</li>
+<li>Keine Onlinedatenbank</li>
 <li>Noten für die fertigen Projekte und Vorstellungen sind nicht zu verwalten</li>
 </ul>
 <h1 id="dekomposition">Dekomposition</h1>
@@ -420,42 +423,37 @@ code {
 <p><img src="./Images/BNPM Diagram.jpg" alt="^3"></p>
 <h2 id="folgende-funktionalit%C3%A4ten-sind-bereitzustellen">Folgende Funktionalitäten sind bereitzustellen:</h2>
 <h3 id="software">Software:</h3>
-<ol>
-<li>Projektanträge von 2-3 Studenten pro Projektgruppe</li>
-<li>Projektantrag enthält Kurzbeschreibung</li>
-<li>Projektantrag enthält Titel</li>
-<li>Projektantrag enthält Ausführliche Beschreibung (1-2 DIN A4 Seiten)</li>
-<li>Projektantrag enthält Namen der Lehrveranstaltung</li>
-<li>Projektantrag enthält Kondaktdaten für Ansprechpartner in Unternehmen</li>
-<li>Projektantrag kann von Studenten eingereicht werden</li>
-<li>Projektantrag kann von Studenten überarbeitet werden</li>
-<li>Projektantrag wird für Studenten Read-Only, sobald er eingereicht wird.</li>
-<li>Projektantrag kann von Mitarbeiter zugelassen werden</li>
-<li>Projektantrag kann von Mitarbeiter abgelehnt werden</li>
-<li>Projektantrag kann von Mitarbeiter zur Überarbeitung kommentiert und an den Studenten zurückgegeben werden (siehe Software Requirement #7). Hier wird der Projektantrag wieder als Schreibbar für den Studenten markiert.</li>
-<li>Nach der Zulassung können Studenten zwei Termine zur Vorstellung vorschlagen</li>
-<li>Vorschläge für Termin können von Mitarbeiter abgelehnt werden</li>
-<li>Bei Ablehnung eines Termins muss der Student neue Termine vorschlagen können</li>
-<li>Vorschläge für Termin können von Mitarbeiter angenommen werden</li>
-<li>Der Zugang wird durch Username + Password geschützt</li>
-</ol>
+<p><a href="%5ES1">S1</a>. Projektanträge von 2-3 Studenten pro Projektgruppe</p>
+<p>S2. Projektantrag enthält Kurzbeschreibung</p>
+<p>S3. Projektantrag enthält Titel</p>
+<p>S4. Projektantrag enthält Ausführliche Beschreibung (1-2 DIN A4 Seiten)</p>
+<p>S5. Projektantrag enthält Namen der Lehrveranstaltung</p>
+<p>S6. Projektantrag enthält Kondaktdaten für Ansprechpartner in Unternehmen</p>
+<p>S7. Projektantrag kann von Studenten eingereicht werden</p>
+<p>S8. Projektantrag kann von Studenten überarbeitet werden</p>
+<p>S9. Projektantrag wird für Studenten Read-Only, sobald er eingereicht wird.</p>
+<p>S10. Projektantrag kann von Mitarbeiter zugelassen werden</p>
+<p>S11. Projektantrag kann von Mitarbeiter abgelehnt werden</p>
+<p>S12. Projektantrag kann von Mitarbeiter zur Überarbeitung kommentiert und an den Studenten zurückgegeben werden (siehe Software Requirement #7). Hier wird der Projektantrag wieder als Schreibbar für den Studenten markiert.</p>
+<p>S13. Nach der Zulassung können Studenten zwei Termine zur Vorstellung vorschlagen</p>
+<p>S14. Vorschläge für Termin können von Mitarbeiter abgelehnt werden</p>
+<p>S15. Bei Ablehnung eines Termins muss der Student neue Termine vorschlagen können</p>
+<p>S16. Vorschläge für Termin können von Mitarbeiter angenommen werden</p>
+<p>S17. Der Zugang wird durch Username + Password geschützt</p>
+<p>S18: Studenten können nur auf eigene Projektanträge zugreifen</p>
 <h3 id="hardware">Hardware:</h3>
-<ol>
-<li>Individuelle PC-Nutzung notwendig</li>
-<li>Realisierung auf deinem Desktop-PC</li>
-<li>Zugriff aufs File-System für Persistierung</li>
-</ol>
+<p>H1. Individuelle PC-Nutzung notwendig</p>
+<p>H2. Realisierung auf deinem Desktop-PC</p>
+<p>H3. Zugriff aufs File-System für Persistierung</p>
 <h3 id="organisatorische-anforderungen">Organisatorische Anforderungen:</h3>
-<ol>
-<li>Einzelplatzanwendung</li>
-<li>Programmierung als Java-Applikation</li>
-<li>Ein Internetzugang ist nicht notwendig (lokale Anwendung)</li>
-<li>Rechteverwaltung: Mitarbeiter können alle Anträge sehen; Studenten jedoch nur ihren eigenen Antrag</li>
-<li>Studenten sind Nutzer</li>
-<li>Mitarbeiter der FH sind Admins</li>
-<li>Daten sollen persistiert werden</li>
-<li>Eine graphische Oberfläche soll angeboten werden</li>
-</ol>
+<p>O1. Einzelplatzanwendung</p>
+<p>O2. Programmierung als Java-Applikation</p>
+<p>O3. Ein Internetzugang ist nicht notwendig (lokale Anwendung)</p>
+<p>O4. Rechteverwaltung: Mitarbeiter können alle Anträge sehen; Studenten jedoch nur ihren eigenen Antrag</p>
+<p>O5. Studenten sind Nutzer</p>
+<p>O6. Mitarbeiter der FH sind Admins</p>
+<p>O7. Daten sollen persistiert werden</p>
+<p>O8. Eine graphische Oberfläche soll angeboten werden</p>
 <h2 id="szenarien">Szenarien</h2>
 <table>
 <thead>
@@ -827,7 +825,7 @@ code {
 <tbody>
 <tr>
 <td>Kontext</td>
-<td>Nach der Zulassung von Projekten können Studenten Vorstellungstermine terminieren. Hier kann der Betreuer  Terminen jeweils zustimmen</td>
+<td>Nach der Zulassung von Projekten können Studenten Vorstellungstermine terminieren. Hier kann der Betreuer Terminen jeweils zustimmen</td>
 </tr>
 <tr>
 <td>Auslöser</td>
@@ -905,18 +903,20 @@ code {
 <li>Abnahme</li>
 </ol>
 <h1 id="sicherheitsanforderungen">Sicherheitsanforderungen</h1>
-<p>Das Softwareprodukt enthält persönliche Daten und Informationen zu den Projektanträgen anderer Nutzer, daher müssen wir den Zugriff durch die Nutzerparteien (Studenten und Mitarbeiter) verschieden regulieren. Studenten dürfen nur ihren eigenen Antrag sehen. Der Zugrang wird durch Nutzername + Password geschützt.</p>
+<p>Das Softwareprodukt enthält persönliche Daten und Informationen zu den Projektanträgen anderer Nutzer, daher müssen wir den Zugriff durch die Nutzerparteien (Studenten und Mitarbeiter) verschieden regulieren. Studenten dürfen nur ihren eigenen Antrag sehen. Der Zugang wird durch Nutzername + Password geschützt.</p>
 <h1 id="lieferumfang">Lieferumfang</h1>
 <p>Das Softwareprodukt wird in Form einer einzelnen Executable (ausführebare Datei) ausgeliefert. Es gibt keinerlei Lizenzen; das Produkt ist auf jedem Computer frei ausführbar.</p>
 <h1 id="abnahmekriterien">Abnahmekriterien</h1>
 <h2 id="folgende-tests-m%C3%BCssen-alle-bestanden-werden">Folgende Tests müssen alle bestanden werden:</h2>
-<ol>
-<li>Überprüfen ob die Daten bei Programmstart geladen werden und bei Aktionen (Beantragung/Administrierung) gespeichert werden.</li>
-<li>Studenten können nur auf eigene Projektanträge zugreifen</li>
-<li>Studenten können Projektanträge einreichen</li>
-<li>Mitarbeiter können Projektanträge ansehen und administrieren (zulassen, ablehnen, zur Überarbeitung zurückgeben)</li>
-<li>Alle Aktionen müssen über eine graphische Oberfläche verüfgbarsein.</li>
-</ol>
+<p>T1. Wenn ein Projektantrag eingereicht wird, müssen Titel, Kurzbeschreibung, ausführliche Beschreibung (1-2 DIN A4 Seiten) und Matrikelnummern der Studenten angegeben werden. <em>Siehe S02 bis S04</em>.</p>
+<p>T2. Eine Gruppe für einen Projektantrag dürfen minimal 2 und maximal 3 Studenten haben. <em>Siehe S01</em>.</p>
+<p>T3. Der Betreuer muss einen Kommentar hinterlassen, wenn ein Projektantrag zur Überarbeitung zurückgegeben wird. <em>Siehe S12</em>.</p>
+<p>T4. Mitarbeiter können Projektanträge ansehen und administrieren (zulassen, ablehnen, zur Überarbeitung zurückgeben). Siehe S10 bis S11, T3.</p>
+<p>T5. Wenn ein Projektantrag zur Überarbeitung zurückgegeben wird, muss ein Student das Projekt überarbeiten. <em>Siehe S12</em>.</p>
+<p>T6. Studenten können nur auf eigene Projektanträge zugreifen. <em>Siehe S17</em>.</p>
+<p>T7. Wenn ein das Projekt zugelassen wird, muss ein Student zwei Vorstellungstermine einreichen. <em>Siehe S13</em>.</p>
+<p>T8. Der Mitarbeiter muss die jeweiligen Vorstellungstermine bestätigen oder ablehnen. <em>Siehe S14, S16</em>.</p>
+<p>T9. Bei Ablehnung eines Vorstellungstermins muss vom Stundenten ein neuer Termin eingereicht werden. <em>Siehe 13</em>.</p>
 <h1 id="abk%C3%BCrzungsverzeichnis">Abkürzungsverzeichnis</h1>
 <ul>
 <li>FH =&gt; Fachhochschule</li>
@@ -927,9 +927,9 @@ code {
 <li>Es wurden keine Drittparteidokumente verwendet</li>
 </ul>
 <h1 id="abbildungsverzeichnis">Abbildungsverzeichnis</h1>
-<p>[^1]: Use Case Diagram Blatt5.png - Ein Diagramm, welches alle Use-Cases der Software aufzeigt.</p>
-<p>[^2]: Arch.png - Zeigt die Architektur unserer Software mitsamt aller Systeme und Abhängigkeiten</p>
-<p>[^3]: BNPM Diagram.jpg - Zeigt den Ablauf eines Workflows</p>
+<p>[^1]: Use Case Diagram Blatt5.png - Ein Diagramm, welches alle Use-Cases der Software aufzeigt.
+[^2]: Arch.png - Zeigt die Architektur unserer Software mitsamt aller Systeme und Abhängigkeiten
+[^3]: BNPM Diagram.jpg - Zeigt den Ablauf eines Workflows</p>
 
 </body>
 </html>
