@@ -3,7 +3,7 @@ public enum Wahlpflichtfaecher {
 	NaturalLanguageProcessing("NLP"),
 	DeepLearning("DL"),
 	Skriptsprachen("SCS");
-name
+
 	public final String name;
 
 	Wahlpflichtfaecher(String name) {
