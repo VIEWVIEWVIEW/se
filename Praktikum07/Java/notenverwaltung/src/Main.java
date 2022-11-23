@@ -24,6 +24,7 @@ public class Main {
         printFields(wahlpflichtmodul.getClass());
 
         Wahlpflichtmodul w = new Wahlpflichtmodul();
-        w.name = Wahlpflichtfaecher.EinfuehrungMachineLearning;
+        w.Name = Wahlpflichtfaecher.EinfuehrungMachineLearning;
+        System.out.println(w.Name.name);
     }
 }
