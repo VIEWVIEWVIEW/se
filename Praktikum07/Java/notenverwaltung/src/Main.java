@@ -2,6 +2,7 @@ import java.lang.reflect.Field;
 
 public class Main {
     public static void main(String[] args) {
+        System.out.println("==========");
         test();
     }
 
@@ -15,6 +16,7 @@ public class Main {
 
     public static void test() {
         // Modifiers: https://docs.oracle.com/javase/7/docs/api/java/lang/reflect/Modifier.html
+        // https://docs.oracle.com/javase/specs/jvms/se7/html/jvms-4.html#jvms-4.5~
         // Test Note Fields
         Note note = new Note(1.0f);
         printFields(note.getClass());

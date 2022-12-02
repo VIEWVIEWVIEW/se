@@ -7,8 +7,8 @@ public class Abschluss {
 	public int ectsKolloquium = 0;
 	public int ectsBachelor = 0;
 
-	private int maximalAnzahlNotenBachelor = 2;
-	private int maximalAnzahlNotenKolloquium = 2;
+	final private int maximalAnzahlNotenBachelor = 2;
+	final private int maximalAnzahlNotenKolloquium = 2;
 
 	Abschluss(int ectsKolloquium, int ectsBachelor) {
 		ectsBachelor = ectsBachelor;

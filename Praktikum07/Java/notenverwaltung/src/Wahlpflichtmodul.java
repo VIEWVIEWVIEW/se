@@ -7,7 +7,7 @@ public class Wahlpflichtmodul {
 	public Wahlpflichtfaecher name;
 	public int semester = 1;
 
-	private int maximalAnzahlNoten = 3;
+	final private int maximalAnzahlNoten = 3;
 
 	/**
 	 * 

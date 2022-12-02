@@ -8,7 +8,7 @@ public class Pflichtmodul {
 	public String name;
 	public int semester = 1;
 
-	private int maximalAnzahlNoten = 3;
+	final private int maximalAnzahlNoten = 3;
 
 	/**
 	 * 
