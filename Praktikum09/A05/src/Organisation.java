@@ -1,5 +1,5 @@
 public class Organisation {
 
-	public String Name;
+	public String name;
 
 }

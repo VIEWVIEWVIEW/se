@@ -10,7 +10,6 @@ import java.util.List;
 
 
 public class CrudAngestellter implements Crud<Angestellter> {
-
     @Override
     public void create(Angestellter t) {
         // Get connection
@@ -19,7 +18,7 @@ public class CrudAngestellter implements Crud<Angestellter> {
             // Create statement
             Statement stmt = conn.createStatement();
             // Execute statement
-            Integer affectedRows = stmt.executeUpdate("INSERT INTO Angestellter VALUES (null, '" + t.Vorname + "', '" + t.Nachname + "', '" + t.Plz + "', '" + t.Ort + "', '" + t.Strasse +   "', '" + new SimpleDateFormat("YYYY-MM-DD").format(t.Eintrittsdatum) + "')");
+            Integer affectedRows = stmt.executeUpdate("INSERT INTO Angestellter VALUES (null, '" + t.Vorname + "', '" + t.Nachname + "', '" + t.Plz + "', '" + t.Ort + "', '" + t.Strasse + "', '" + new SimpleDateFormat("yyyy-MM-DD").format(t.Eintrittsdatum) + "')");
             if (affectedRows == 1) {
                 System.out.println("Angestellter wurde erfolgreich angelegt.");
             } else {

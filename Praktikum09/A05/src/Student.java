@@ -1,8 +1,10 @@
+import java.util.ArrayList;
+
 public class Student {
 
-	public String Vorname;
-	public String Nachname;
-	public Projekt Projekt;
-	public String Matrikelnummer;
+	public String vorname;
+	public String nachname;
+	public ArrayList<Projekt> projekte;
+	public String matrikelnummer;
 
 }
