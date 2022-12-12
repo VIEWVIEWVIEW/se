@@ -1,13 +1,13 @@
 public class Ansprechpartner {
-	public String Vorname;
-	public String Nachname;
-	public String Email;
-	public Organisation ZugehoerigeOrganisation;
+	public String vorname;
+	public String nachname;
+	public String email;
+	public Organisation zugehoerigeOrganisation;
 
-	Ansprechpartner(Organisation zugehoerigeOrganisation) {
+	public Ansprechpartner(Organisation zugehoerigeOrganisation) {
 		if (zugehoerigeOrganisation == null) {
-			throw new IllegalArgumentException("zugehoerigeOrganisation muss gegeben sein");
+			throw new IllegalArgumentException("zugehoerigeOrganisation darf nicht null sein");
 		}
-		this.ZugehoerigeOrganisation = zugehoerigeOrganisation;
+		this.zugehoerigeOrganisation = zugehoerigeOrganisation;
 	}
 }

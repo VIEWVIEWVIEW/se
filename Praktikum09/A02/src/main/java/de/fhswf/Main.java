@@ -1,7 +1,5 @@
 package de.fhswf;
 
-import org.hibernate.resource.beans.internal.BeansMessageLogger_$logger;
-
 import java.sql.*;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -254,7 +252,8 @@ public class Main {
 
             // Insert data
             CrudAngestellter crud = new CrudAngestellter();
-            /**
+
+            /** Example insert
             Angestellter a = new Angestellter();
             // Eintringsdatum as Date
             a.Eintrittsdatum = new Date(System.currentTimeMillis());
@@ -267,15 +266,14 @@ public class Main {
             CrudAngestellter crud = new CrudAngestellter();
             crud.create(a);
              **/
+            // statement.executeUpdate("INSERT INTO Angestellter VALUES ('Max', 'Mustermann', '12345', 'Musterstadt', 'Musterstraße 1')");
 
 
             //Angestellter Max = crud.read(1);
             //System.out.println(Max.Vorname + " " + Max.Nachname + " " + Max.Plz + " " + Max.Ort + " " + Max.Strasse + " " + Max.Eintrittsdatum);
 
-            // statement.executeUpdate("INSERT INTO Angestellter VALUES ('Max', 'Mustermann', '12345', 'Musterstadt', 'Musterstraße 1')");
             try {
                 printMenu();
-
             } catch (Exception e) {
                 e.printStackTrace();
             }
