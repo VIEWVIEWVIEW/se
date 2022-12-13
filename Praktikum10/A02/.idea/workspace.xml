@@ -4,52 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ec37bdab-2111-40ff-81a2-73be89c9aee4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../Praktikum09/A02/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Praktikum09/A05/src/Projektstatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy-datasource.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.jpb/persistence-units.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fhswf.sqlite" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/a02/HelloApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/a02/HelloController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/a02/OrganisationRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/a02/TestController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/a02/hello-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Praktikum07/Java/notenverwaltung/out/production/notenverwaltung/Note$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Praktikum07/Java/notenverwaltung/out/production/notenverwaltung/Note$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Praktikum07/Java/notenverwaltung/out/production/notenverwaltung/Note.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Praktikum07/Java/notenverwaltung/out/production/notenverwaltung/Note.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Praktikum07/Java/notenverwaltung/out/production/notenverwaltung/Wahlpflichtfaecher.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Praktikum07/Java/notenverwaltung/out/production/notenverwaltung/Wahlpflichtfaecher.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Praktikum09/.Blatt9.vpp.lck" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Praktikum09/A02/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Praktikum09/A02/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Praktikum09/A02/fh.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/../../Praktikum09/A02/fh.sqlite" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Praktikum09/A02/src/main/java/de/fhswf/CrudAngestellter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Praktikum09/A02/src/main/java/de/fhswf/CrudAngestellter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Praktikum09/A02/src/main/java/de/fhswf/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Praktikum09/A02/src/main/java/de/fhswf/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Praktikum09/A02/target/classes/de/fhswf/CrudAngestellter.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Praktikum09/A02/target/classes/de/fhswf/CrudAngestellter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Praktikum09/A02/target/classes/de/fhswf/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Praktikum09/A02/target/classes/de/fhswf/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Praktikum09/A05/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Praktikum09/A05/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Praktikum09/A05/src/Ansprechpartner.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Praktikum09/A05/src/Ansprechpartner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Praktikum09/A05/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Praktikum09/A05/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Praktikum09/A05/src/Organisation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Praktikum09/A05/src/Organisation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Praktikum09/A05/src/Projekt.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Praktikum09/A05/src/Projekt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Praktikum09/A05/src/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Praktikum09/A05/src/Student.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Praktikum09/Blatt9.vpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../Praktikum09/Blatt9.vpp" afterDir="false" />
-    </list>
+    <list default="true" id="ec37bdab-2111-40ff-81a2-73be89c9aee4" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -58,15 +13,20 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Tag Library Descriptor" />
-        <option value="com.haulmont.jpb.JpaEntity" />
         <option value="com.haulmont.jpb.NewClass" />
+        <option value="com.haulmont.jpb.NewRecord" />
+        <option value="com.haulmont.jpb.JpaEntity" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="isDesignerTabSelected" value="false" />
+    <option name="isToolWindowVisible" value="false" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -79,21 +39,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.haulmont.jpb.entityDeclaration&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "DtoCreateDialog.USE_JAVA_RECORDS_INITIAL_PROP_KEY": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/w/repos/se/Praktikum10/A02",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "configurable.group.com.haulmont.jpb.tools"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;sqlite&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "sqlite",
+      "mariadb",
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.example.a02.entity" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\w\repos\se\Praktikum10\A02\src\main\resources\META-INF" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.a02.HelloApplication" />
@@ -116,6 +89,7 @@
       <workItem from="1670586861037" duration="1815000" />
       <workItem from="1670787210231" duration="2924000" />
       <workItem from="1670790272130" duration="2912000" />
+      <workItem from="1670854580924" duration="19283000" />
     </task>
     <servers />
   </component>

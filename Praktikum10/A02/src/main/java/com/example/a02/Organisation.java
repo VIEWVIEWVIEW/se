@@ -4,7 +4,27 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "organisation")
-public class OrganisationRepository {
+public class Organisation {
+
+
+    @Column(unique=true)
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Organisation(String name) {
+        this.name = name;
+    }
+
+    public Organisation() {
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
@@ -18,14 +38,4 @@ public class OrganisationRepository {
         this.id = id;
     }
 
-    @Column(name = "name", nullable = false)
-    private String name;
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 }

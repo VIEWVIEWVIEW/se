@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!--  Persistence unit name must match the name in persistence.xml -->
-<persistence-unit name="A02">
-    <class>com.example.a02.Person</class>
-</persistence-unit>
