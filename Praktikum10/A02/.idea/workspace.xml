@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ec37bdab-2111-40ff-81a2-73be89c9aee4" name="Changes" comment="" />
+    <list default="true" id="ec37bdab-2111-40ff-81a2-73be89c9aee4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../Praktikum09/.Blatt9.vpp.lck" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -89,7 +91,7 @@
       <workItem from="1670586861037" duration="1815000" />
       <workItem from="1670787210231" duration="2924000" />
       <workItem from="1670790272130" duration="2912000" />
-      <workItem from="1670854580924" duration="19283000" />
+      <workItem from="1670854580924" duration="23703000" />
     </task>
     <servers />
   </component>

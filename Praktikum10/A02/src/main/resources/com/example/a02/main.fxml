@@ -33,13 +33,11 @@
 -->
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.ToolBar?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
 <VBox prefHeight="395.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.a02.HelloController">
@@ -58,13 +56,12 @@
                </content>
           </Tab>
             <Tab text="Organisationen">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0">
-                     <children>
-                        <ListView fx:id="organisationListView" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                     </children>
-                  </AnchorPane>
-              </content>
+                <TableView fx:id="organisationTableView" prefHeight="200.0" prefWidth="200.0">
+                    <columns>
+                        <TableColumn id="organisationsNameCol" fx:id="organisationsNameCol" prefWidth="185.0" text="Organisationsname" />
+                        <TableColumn id="anzahlAnsprechpartnerCol" fx:id="anzahlAnsprechpartnerCol" prefWidth="175.0" text="Anzahl Ansprechpartner" />
+                    </columns>
+                </TableView>
             </Tab>
         </tabs>
       </TabPane>

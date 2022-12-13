@@ -1,12 +1,17 @@
 package com.example.a02;
 
 import jakarta.persistence.EntityManager;
+import javafx.beans.property.ReadOnlyObjectWrapper;
+import javafx.beans.property.ReadOnlyStringWrapper;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.util.Callback;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,8 +25,17 @@ public class HelloController {
     private Button organisationHinzufuegenButton;
 
     private ObservableList<Organisation> organisationList = FXCollections.observableArrayList();
+
     @FXML
-    private ListView<Organisation> organisationListView;
+    private TableView<Organisation> organisationTableView;
+
+    @FXML
+    private TableColumn<Organisation, String> organisationsNameCol;
+
+    @FXML
+    private TableColumn<Organisation, String> anzahlAnsprechpartnerCol;
+
+    // --- Table
 
 
     @FXML
@@ -33,26 +47,34 @@ public class HelloController {
     @FXML
     void initialize() {
         assert organisationHinzufuegenButton != null : "fx:id=\"organisationHinzufuegenButton\" was not injected: check your FXML file 'main.fxml'.";
-        assert organisationListView != null : "fx:id=\"organisationListView\" was not injected: check your FXML file 'main.fxml'.";
 
         // get all organisations from the database
         EntityManager entityManager = EntityManagerFactorySingleton.getEntityManager();
         List<Organisation> organisations = entityManager.createQuery("SELECT o FROM Organisation o", Organisation.class).getResultList();
         organisationList.addAll(organisations);
 
-        organisationListView.setItems(organisationList);
+        organisationTableView.setItems(organisationList);
 
-        organisationListView.setCellFactory(param -> new ListCell<Organisation>() {
-            @Override
-            protected void updateItem(Organisation item, boolean empty) {
-                super.updateItem(item, empty);
-                if (empty || item == null || item.getName() == null) {
-                    setText(null);
-                } else {
-                    setText(item.getName());
-                }
+
+        for (Organisation organisation : organisationList) {
+            System.out.println(organisation.getName());
+        }
+
+        organisationsNameCol.setCellValueFactory(p -> new ReadOnlyObjectWrapper(p.getValue().getName()));
+
+
+
+        // First column
+        /**
+        TableColumn<Organisation, String> anzahlAnsprechpartnerCol  = new TableColumn<>("Name");
+        anzahlAnsprechpartnerCol.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Organisation, String>, ObservableValue<String>>() {
+            public ObservableValue<String> call(TableColumn.CellDataFeatures<Organisation, String> p) {
+                // p.getValue() returns the Person instance for a particular TableView row
+                return new ReadOnlyStringWrapper(p.getValue().getName());
             }
         });
+        organisationTableView.getColumns().add(anzahlAnsprechpartnerCol);
+         **/
 
 
 
