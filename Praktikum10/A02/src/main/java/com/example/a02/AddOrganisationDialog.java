@@ -30,6 +30,7 @@ public class AddOrganisationDialog {
                     entityManager.persist(organisation);
                     entityManager.getTransaction().commit();
                     entityManager.clear();
+
                 } catch (Exception e) {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("Fehler");

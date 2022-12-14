@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ec37bdab-2111-40ff-81a2-73be89c9aee4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../Praktikum09/.Blatt9.vpp.lck" afterDir="false" />
-    </list>
+    <list default="true" id="ec37bdab-2111-40ff-81a2-73be89c9aee4" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,8 +15,8 @@
       <list>
         <option value="Tag Library Descriptor" />
         <option value="com.haulmont.jpb.NewClass" />
-        <option value="com.haulmont.jpb.NewRecord" />
         <option value="com.haulmont.jpb.JpaEntity" />
+        <option value="com.haulmont.jpb.NewRecord" />
         <option value="Class" />
       </list>
     </option>
@@ -91,7 +89,7 @@
       <workItem from="1670586861037" duration="1815000" />
       <workItem from="1670787210231" duration="2924000" />
       <workItem from="1670790272130" duration="2912000" />
-      <workItem from="1670854580924" duration="23703000" />
+      <workItem from="1670854580924" duration="36815000" />
     </task>
     <servers />
   </component>
@@ -111,5 +109,26 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/a02/HelloController.java</url>
+          <line>200</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/a02/HelloController.java</url>
+          <line>125</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="java.lang.String" memberName="coder" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>

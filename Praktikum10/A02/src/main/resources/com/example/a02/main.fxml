@@ -46,11 +46,12 @@
         <tabs>
           <Tab text="Ansprechpartner">
                <content>
-                  <TableView prefHeight="200.0" prefWidth="200.0">
+                  <TableView fx:id="ansprechpartnerTableView" prefHeight="200.0" prefWidth="200.0">
                     <columns>
-                      <TableColumn prefWidth="185.0" text="Name" />
-                      <TableColumn prefWidth="175.0" text="Organisation" />
-                        <TableColumn prefWidth="174.0" text="Email" />
+                      <TableColumn fx:id="ansprechpartnerVornameCol" prefWidth="185.0" text="Vorname" />
+                        <TableColumn fx:id="ansprechpartnerNachnameCol" prefWidth="175.0" text="Nachname" />
+                        <TableColumn fx:id="ansprechpartnerEmailCol" prefWidth="261.333251953125" text="Email" />
+                      <TableColumn fx:id="ansprechpartnerOrganisationCol" prefWidth="155.33349609375" text="Organisation" />
                     </columns>
                   </TableView>
                </content>
@@ -67,7 +68,7 @@
       </TabPane>
       <ToolBar prefHeight="0.0" prefWidth="692.0">
         <items>
-          <Button mnemonicParsing="false" text="Ansprechpartner hinzufügen" />
+          <Button fx:id="ansprechpartnerHinzufuegenButton" mnemonicParsing="false" onAction="#onAnsprechpartnerHinzufuegenClick" text="Ansprechpartner hinzufügen" />
             <Button fx:id="organisationHinzufuegenButton" mnemonicParsing="false" onAction="#onOrganisationHinzuefuegenClick" text="Organisation hinzufügen" />
             <Button fx:id="test" mnemonicParsing="false" text="Button" />
         </items>

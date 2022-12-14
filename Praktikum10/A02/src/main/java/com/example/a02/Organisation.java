@@ -6,7 +6,6 @@ import jakarta.persistence.*;
 @Table(name = "organisation")
 public class Organisation {
 
-
     @Column(unique=true)
     private String name;
 
@@ -37,5 +36,4 @@ public class Organisation {
     public void setId(Integer id) {
         this.id = id;
     }
-
 }

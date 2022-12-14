@@ -822,15 +822,15 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     <user id="233" parent="1" name="user"/>
     <table id="234" parent="224" name="SEQUENCE">
       <Engine>InnoDB</Engine>
-      <CollationName>latin1_swedish_ci</CollationName>
+      <CollationName>latin1_general_ci</CollationName>
     </table>
     <table id="235" parent="224" name="ansprechpartner">
       <Engine>InnoDB</Engine>
-      <CollationName>latin1_swedish_ci</CollationName>
+      <CollationName>latin1_general_ci</CollationName>
     </table>
     <table id="236" parent="224" name="organisation">
       <Engine>InnoDB</Engine>
-      <CollationName>latin1_swedish_ci</CollationName>
+      <CollationName>latin1_general_ci</CollationName>
     </table>
     <column id="237" parent="234" name="SEQ_NAME">
       <DataType>varchar(50)|0s</DataType>
@@ -852,57 +852,76 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="241" parent="235" name="id">
-      <AutoIncrement>1</AutoIncrement>
+      <AutoIncrement>3</AutoIncrement>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="242" parent="235" name="vorname">
+    <column id="242" parent="235" name="email">
       <DataType>varchar(255)|0s</DataType>
-      <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
     <column id="243" parent="235" name="nachname">
       <DataType>varchar(255)|0s</DataType>
-      <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="244" parent="235" name="email">
+    <column id="244" parent="235" name="vorname">
       <DataType>varchar(255)|0s</DataType>
-      <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <index id="245" parent="235" name="PRIMARY">
+    <column id="245" parent="235" name="organisation">
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+    </column>
+    <foreign-key id="246" parent="235" name="FK_ansprechpartner_organisation">
+      <ColNames>organisation</ColNames>
+      <RefColNames>id</RefColNames>
+      <RefTableName>organisation</RefTableName>
+    </foreign-key>
+    <index id="247" parent="235" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="246" parent="235" name="PRIMARY">
+    <index id="248" parent="235" name="FK_ansprechpartner_organisation">
+      <ColNames>organisation</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="249" parent="235" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="247" parent="236" name="id">
+    <column id="250" parent="236" name="id">
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="248" parent="236" name="NAME">
+    <column id="251" parent="236" name="NAME">
       <DataType>varchar(255)|0s</DataType>
       <Position>2</Position>
     </column>
-    <index id="249" parent="236" name="PRIMARY">
+    <index id="252" parent="236" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="250" parent="236" name="PRIMARY">
+    <index id="253" parent="236" name="NAME">
+      <ColNames>NAME</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="254" parent="236" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <key id="255" parent="236" name="NAME">
+      <UnderlyingIndexName>NAME</UnderlyingIndexName>
     </key>
   </database-model>
 </dataSource>
