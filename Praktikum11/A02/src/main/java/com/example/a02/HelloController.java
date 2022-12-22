@@ -4,18 +4,25 @@ import jakarta.persistence.Column;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;
 import javafx.beans.property.ReadOnlyObjectWrapper;
+import javafx.beans.property.ReadOnlyProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 import static java.lang.Math.toIntExact;
 
+import java.io.IOException;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -205,10 +212,24 @@ public class HelloController {
     @FXML
     private AnchorPane loginAnchorPane;
 
+    /** Projektanträge Tab */
+    @FXML
+    private TableView<Projekt> projektantraegeTableView;
+
+    @FXML
+    private TableColumn<Projekt, String> projektTitelCol;
+
+    @FXML
+    private TableColumn<Projekt, String> projektAnsprechpartnerCol;
+
+    private ObservableList<Projekt> projektListe = FXCollections.observableArrayList();
+
+
+
 
     @FXML
     void initialize() {
-        assert organisationHinzufuegenButton != null : "fx:id=\"organisationHinzufuegenButton\" was not injected: check your FXML file 'main.fxml'.";
+        assert organisationHinzufuegenButton != null : "fx:id=\"organisationHinzufuegenButton\" was not injected: check your FXML file 'dozentscreen.fxml'.";
 
         /** Organisation tab */
         updateOrganisationTable();
@@ -316,12 +337,71 @@ public class HelloController {
         /** ------------------------ */
 
         /** Projektantraege tab */
+        // create placeholder projekte
+        // projekt 1
+        Organisation org1 = new Organisation("FH-SWF");
+        Ansprechpartner ansprechpartner1 = new Ansprechpartner(1, "Max", "Mustermann", "max@fh-swf.de", org1);
 
+        Student student1 = new Student("Marc", "Richts", "marc@fh-swf.de", "123456");
+        Student student2 = new Student("Erika", "Mustermann", "erika@fh-swf.de", "123455");
+
+        ArrayList<Student> studenten = new ArrayList<Student>();
+        studenten.add(student1);
+        studenten.add(student2);
+
+        Projekt projekt1 = new Projekt("Supertolles Projekt!", "Beschreibung 1", Projektstatus.EINGEREICHT, studenten, org1, ansprechpartner1);
+
+        // Termine
+        projekt1.setTermin1(LocalDate.of(2023, 1, 1));
+        projekt1.setTermin2(LocalDate.of(2023, 2, 15));
+
+
+        projektListe.add(projekt1);
+
+        // projekt 2
+        Organisation org2 = new Organisation("RWTH Aachen");
+
+        Projekt projekt2 = new Projekt("Finanztool", "Beschreibung 2", Projektstatus.UEBERARBEITUNG, studenten, org2, ansprechpartner1);
+
+        // Termine
+        projekt2.setTermin1(LocalDate.of(2023, 5, 1));
+        projekt2.setTermin2(LocalDate.of(2023, 7, 15));
+
+        projektListe.add(projekt2);
+
+        projektantraegeTableView.setItems(projektListe);
+
+        /** Cell factories */
+        projektTitelCol.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper(cellData.getValue().getTitel()));
+
+        projektAnsprechpartnerCol.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper(cellData.getValue().getAnsprechpartner().getVorname() + " " + cellData.getValue().getAnsprechpartner().getNachname()));
+
+        statusCol.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper(cellData.getValue().getStatus().toString()));
+
+        vorstellungstermin1Col.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper(cellData.getValue().getTermin1().toString()));
+
+        vorstellungstermin2Col.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper(cellData.getValue().getTermin2().toString()));
 
 
     }
 
+    @FXML
+    private TableColumn<Projekt, String> statusCol;
 
+    @FXML
+    private TableColumn<Projekt, String> vorstellungstermin1Col;
 
+    @FXML
+    private TableColumn<Projekt, String> vorstellungstermin2Col;
+
+    @FXML
+    private void projektAnsichtOnClick(ActionEvent event) throws IOException {
+        // load projektantrag-dozent.fxml
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("projektantrag-dozent.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
+    }
 
 }

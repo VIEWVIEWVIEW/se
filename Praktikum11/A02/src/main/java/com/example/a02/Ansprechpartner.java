@@ -5,6 +5,14 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "ansprechpartner")
 public class Ansprechpartner {
+    public Ansprechpartner(Integer id, String vorname, String nachname, String email, Organisation organisation) {
+        this.id = id;
+        this.vorname = vorname;
+        this.nachname = nachname;
+        this.email = email;
+        this.organisation = organisation;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
@@ -22,6 +30,10 @@ public class Ansprechpartner {
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "organisation", nullable = false)
     private Organisation organisation;
+
+    public Ansprechpartner() {
+
+    }
 
     public Organisation getOrganisation() {
         return organisation;

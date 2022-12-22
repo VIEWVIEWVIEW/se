@@ -12,18 +12,22 @@ public class LoginScreenController {
 
     @FXML
     void alsDozentEinloggenOnClick(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("main.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("dozentscreen.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         Stage stage = new Stage();
-        stage.setTitle("Hello!");
         stage.setScene(scene);
         stage.show();
-        System.out.println("alsDozentEinloggenOnClick");
+        System.out.println("als Dozent einloggen");
     }
 
     @FXML
-    void alsStudentEinloggenOnClick(ActionEvent event) {
-
+    void alsStudentEinloggenOnClick(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hauptansicht-student.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
+        System.out.println("als student einloggen");
     }
 
 }

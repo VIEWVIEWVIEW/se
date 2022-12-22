@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="370.0" spacing="3.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.a02.HelloController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="370.0" spacing="3.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.a02.NeuerProjektantragController">
    <children>
       <Label text="Projekttitel" />
       <TextField />
@@ -25,8 +25,8 @@
       <TextField />
       <ButtonBar prefHeight="40.0" prefWidth="200.0">
         <buttons>
-            <Button mnemonicParsing="false" text="Abbrechen" />
-          <Button mnemonicParsing="false" text="Absenden" />
+          <Button fx:id="absendenButton" mnemonicParsing="false" onAction="#absendenOnClick" text="Absenden" />
+            <Button fx:id="abbrechenButton" mnemonicParsing="false" onAction="#abbrechenOnClick" text="Abbrechen" />
         </buttons>
          <VBox.margin>
             <Insets right="5.0" top="5.0" />

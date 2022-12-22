@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="681.0" prefWidth="600.0" spacing="3.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.a02.ProjektantragBearbeitenDozentController">
+   <children>
+      <Label text="Status: " />
+      <ComboBox fx:id="projektStatusCombobox" prefWidth="150.0" />
+      <Label text="Kommentar: ">
+         <VBox.margin>
+            <Insets top="3.0" />
+         </VBox.margin>
+      </Label>
+      <TextArea editable="false" prefHeight="187.0" prefWidth="588.0" text="Hier kann der Dozent einen Kommentar hinterlassen. Dieser wird angezeigt, falls der Student den Projektantrag überarbeiten muss. Der Dozent kann Vorstellungstermine festlegen, und Kleinigkeiten editieren.&#10;Außerdem legt der Dozent den Status und den Ansprechpartner fest. In dem Hauptfenster hat der Dozent die Möglichkeit, neue Ansprechpartner und Organisationen anzulegen." wrapText="true" />
+      <Label text="Titel">
+         <VBox.margin>
+            <Insets top="30.0" />
+         </VBox.margin>
+      </Label>
+      <TextField text="Finanzverwaltung" />
+      <Label text="Kurzbeschreibung" />
+      <TextField text="Ein pragmatisches Tool zur Verwaltung von Finanzen" />
+      <Label text="Ausführliche Beschreibung" />
+      <TextArea prefHeight="213.0" prefWidth="600.0" text="Das Ziel unseres Projekts ist es, eine benutzerfreundliche Web-Anwendung zu entwickeln, die es den Nutzern ermöglicht, ihre Finanzen zu verwalten. Die Anwendung wird in Java programmiert und mit Hilfe von Frameworks wie Spring und Hibernate aufgebaut. Sie wird eine moderne, responsive Benutzeroberfläche haben, die auf jedem Gerät einfach zu bedienen ist.&#10;&#10;Die Nutzer werden in der Lage sein, ihre Einkünfte und Ausgaben zu erfassen und zu verfolgen, indem sie Kategorien und Budgets festlegen. Sie werden auch die Möglichkeit haben, Finanzberichte und -grafiken zu erstellen, um ihre Finanzlage besser zu verstehen und zu planen.&#10;&#10;" wrapText="true" />
+      <Label text="Projektteilnehmer (Matrikelnummern): 123456, 1234, 29123" />
+      <Label text="Vorstellungstermin 1:" />
+      <DatePicker fx:id="termin1" />
+      <Label text="Vorstellungstermin 2:" />
+      <DatePicker fx:id="termin2" />
+      <Label text="Ansprechpartner: " />
+      <ComboBox fx:id="ansprechpartnerCombobox" prefWidth="150.0" />
+      <ButtonBar prefHeight="40.0" prefWidth="200.0">
+         <buttons>
+            <Button fx:id="abbrechenButton" mnemonicParsing="false" onAction="#abbrechenOnClick" text="Abbrechen" />
+            <Button fx:id="neuEinreichenButton" mnemonicParsing="false" onAction="#neuEinreichenonClick" text="Speichern" />
+         </buttons>
+      </ButtonBar>
+   </children>
+   <padding>
+      <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+   </padding>
+</VBox>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.VBox?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="977.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.a02.StudentScreenController">
+    <children>
+        <TabPane prefHeight="401.0" prefWidth="654.0" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab text="Meine Projektanträge">
+                    <content>
+                        <VBox>
+                            <children>
+                                <TableView fx:id="projektTableView" prefHeight="336.0" prefWidth="779.0">
+                                    <columns>
+                                        <TableColumn fx:id="projektTitelCol" prefWidth="337.33343505859375" text="Titel" />
+                                        <TableColumn fx:id="projektStatusCol" prefWidth="201.99990844726562" text="Status" />
+                                        <TableColumn fx:id="vorstellungstermin1Col" prefWidth="201.99990844726562" text="Vorstellungstermin 1" />
+                                        <TableColumn fx:id="vorstellungstermin2Col" prefWidth="201.99990844726562" text="Vorstellungstermin 2" />
+                                        <TableColumn fx:id="projektStatusCol12" prefWidth="201.99990844726562" text="Vorstellungstermin 1" />
+                                    </columns>
+                                </TableView>
+                                <ButtonBar>
+                                    <buttons>
+                                        <Button fx:id="neuerProjektAntragButton" mnemonicParsing="false" onAction="#neuerProjektAntragOnClick" text="Neuer Projektantrag" />
+                                        <Button fx:id="projektantragBearbeitenButton" mnemonicParsing="false" onAction="#projektAntragBearbeitenOnClick" text="Projektantrag bearbeiten" />
+                                    </buttons>
+                                    <padding>
+                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                    </padding>
+                                </ButtonBar>
+                            </children>
+                        </VBox>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </children>
+</VBox>

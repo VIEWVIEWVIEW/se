@@ -32,7 +32,9 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
@@ -55,7 +57,11 @@
                             <TableColumn fx:id="ansprechpartnerOrganisationCol" prefWidth="155.33349609375" text="Organisation" />
                           </columns>
                         </TableView>
-                      <Button fx:id="ansprechpartnerHinzufuegenButton" mnemonicParsing="false" onAction="#onAnsprechpartnerHinzufuegenClick" text="Ansprechpartner hinzufügen" />
+                      <Button fx:id="ansprechpartnerHinzufuegenButton" mnemonicParsing="false" onAction="#onAnsprechpartnerHinzufuegenClick" text="Ansprechpartner hinzufügen">
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </VBox.margin>
+                        </Button>
                      </children>
                   </VBox>
                </content>
@@ -69,7 +75,11 @@
                               <TableColumn id="anzahlAnsprechpartnerCol" fx:id="anzahlAnsprechpartnerCol" prefWidth="175.0" text="Anzahl Ansprechpartner" />
                           </columns>
                       </TableView>
-                     <Button fx:id="organisationHinzufuegenButton" mnemonicParsing="false" onAction="#onOrganisationHinzuefuegenClick" text="Organisation hinzufügen" />
+                     <Button fx:id="organisationHinzufuegenButton" mnemonicParsing="false" onAction="#onOrganisationHinzuefuegenClick" text="Organisation hinzufügen">
+                        <VBox.margin>
+                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                        </VBox.margin>
+                     </Button>
                   </children>
                </VBox>
             </Tab>
@@ -81,12 +91,22 @@
                           <columns>
                             <TableColumn fx:id="projektTitelCol" prefWidth="149.3333740234375" text="Titel" />
                             <TableColumn fx:id="projektAnsprechpartnerCol" minWidth="0.0" prefWidth="180.0001220703125" text="Ansprechpartner" />
-                              <TableColumn minWidth="0.0" prefWidth="162.666748046875" text="Status" />
-                              <TableColumn minWidth="0.0" prefWidth="283.333251953125" text="Studenten" />
-                              <TableColumn minWidth="0.0" prefWidth="297.3333740234375" text="Vorstellungstermin(e)" />
+                              <TableColumn fx:id="statusCol" minWidth="0.0" prefWidth="162.666748046875" text="Status" />
+                              <TableColumn fx:id="vorstellungstermin1Col" minWidth="0.0" prefWidth="283.333251953125" text="Vorstellungstermin 1" />
+                              <TableColumn fx:id="vorstellungstermin2Col" minWidth="0.0" prefWidth="297.3333740234375" text="Vorstellungstermin 2" />
                           </columns>
                         </TableView>
-                        <Button mnemonicParsing="false" text="Projekt bearbeiten" />
+                        <ButtonBar>
+                           <buttons>
+                              <Button fx:id="projektansichtButton" mnemonicParsing="false" onAction="#projektAnsichtOnClick" text="Projektansicht" />
+                           </buttons>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </ButtonBar>
                      </children>
                   </VBox>
               </content>
